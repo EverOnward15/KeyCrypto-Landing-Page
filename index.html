@@ -122,7 +122,7 @@
             /* centers the pair horizontally in container */
             gap: 15px;
             /* spacing between logo and heading */
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
         .logo-heading .logo img {
@@ -151,7 +151,7 @@
         }
 
         .telegram-cta button {
-            padding: 14px 25px;
+            padding: 14px 15px;
             background: #0088cc;
             /* Telegram blue */
             color: #ffffff;
@@ -280,6 +280,18 @@
             text-decoration: underline;
         }
 
+        .telegram-cta {
+            display: flex !important;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px !important;
+        }
+
+        .telegram-cta a {
+            margin: 0 auto;
+        }
+
         .features a {
             margin: 0;
         }
@@ -299,6 +311,8 @@
 
         .coming-soon {
             color: var(--text-muted) !important;
+            margin-bottom: 5px;
+            margin-top: 5px;
         }
 
         @media (max-width: 480px) {
@@ -310,6 +324,7 @@
                 padding: 20px 0;
                 /* give some top/bottom space */
             }
+
         }
     </style>
 </head>
@@ -328,9 +343,16 @@
         </div>
         <h2>Telegram-first, instant crypto access, no signup required</h2>
         <div class="telegram-cta">
-            <a href="https://t.me/WebThreeWallet_Bot" target="_blank">
-                <button>Open in Telegram: @WebThreeWallet_Bot</button>
-            </a>
+            <div>
+                <a href="https://t.me/WebThreeWallet_Bot" target="_blank">
+                    <button>@WebThreeWallet_Bot</button>
+                </a>
+            </div>
+            <div>
+                <a href="@keycrypto_guide" target="_blank">
+                    <button>@KeyCrypto_Guide</button>
+                </a>
+            </div>
         </div>
         <ul class="features">
             <li>Use via Telegram – no signup, no password to remember</li>

@@ -300,6 +300,17 @@
         .coming-soon {
             color: var(--text-muted) !important;
         }
+
+        @media (max-width: 480px) {
+            body {
+                overflow: auto;
+                /* allow scrolling on small screens */
+
+                align-items: flex-start;
+                padding: 20px 0;
+                /* give some top/bottom space */
+            }
+        }
     </style>
 </head>
 

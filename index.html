@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyCrypto Wallet - Coming Soon</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <style>
+        :root {
+            --background: #140d0d;
+            --foreground: #ec7210;
+            --bg: #1c1212;
+            --card-bg: #1a1a1a;
+            --highlight: #ec7210;
+            --primary: #ec7210;
+            --secondary: #d9650e;
+            --accent: #ff8f40;
+            --text-main: #ffffff;
+            --text-light: #d6d6d6;
+            --text-muted: #aaaaaa;
+            --glass: rgba(20, 13, 13, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* padding: 20px; */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating crypto shapes */
+        .crypto-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .crypto-bg div {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 15s linear infinite;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-50px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container */
+        .container {
+            background: var(--glass);
+            padding: 20px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-top: 20px !important;
+        }
+
+        .logo {
+            margin-bottom: 25px;
+        }
+
+        .logo img {
+            max-width: 120px;
+            /* Adjust size as needed */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            /* Centered */
+            filter: drop-shadow(0 0 10px var(--accent));
+            border-radius: 10px;
+        }
+
+        .logo-heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* centers the pair horizontally in container */
+            gap: 15px;
+            /* spacing between logo and heading */
+            margin-bottom: 15px;
+        }
+
+        .logo-heading .logo img {
+            max-width: 80px;
+            /* adjust as needed */
+            height: auto;
+        }
+
+
+
+        h1 {
+            font-size: 3rem;
+            color: var(--foreground);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .telegram-cta {
+            margin: 25px 0;
+        }
+
+        .telegram-cta button {
+            padding: 14px 25px;
+            background: #0088cc;
+            /* Telegram blue */
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .telegram-cta button:hover {
+            background: #00aaff;
+        }
+
+
+        /* Features */
+        .features {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+            font-size: 1rem;
+            list-style: none;
+        }
+
+        .features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 150%;
+        }
+
+        .certifications {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .certifications h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .cert-gallery img {
+            max-width: 100px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .cert-gallery img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+
+
+        /* Signup */
+        .signup input[type="email"] {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            width: 65%;
+            margin-right: 10px;
+            background: var(--bg);
+            color: var(--text-main);
+        }
+
+        .signup button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--text-main);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .signup button:hover {
+            background: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--secondary);
+            padding-top: 15px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .features a {
+            margin: 0;
+        }
+
+        /* Language */
+        .language {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 480px) {
+            .logo-heading {
+                flex-direction: column;
+            }
+        }
+
+        span {
+            color: var(--text-muted) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="crypto-bg" id="crypto-bg"></div>
+
+    <div class="container">
+                                <span>Coming November 2025</span>
+
+        <div class="logo-heading">
+            <div class="logo">
+                <img src="./logo.webp" alt="KeyCrypto Logo">
+            </div>
+            <h1>&nbsp;KeyCrypto Wallet</h1>
+        </div>
+        <h2>Telegram-first, instant crypto access, no signup required</h2>
+        <div class="telegram-cta">
+            <a href="https://t.me/WebThreeWallet_Bot" target="_blank">
+                <button>Open in Telegram: @WebThreeWallet_Bot</button>
+            </a>
+        </div>
+        <ul class="features">
+            <li>Use via Telegram – no signup, no password to remember</li>
+            <li>We auto-generate your wallet/private key <a href="https://web3auth.io/docs/how-web3auth-works">securely
+                    with Web3Auth</a></li>
+            <li>BTC & ETH supported at launch, TRC-20 tokens & crypto cards coming soon</li>
+            <li>Supports Global payment methods</li>
+            <li>Encrypted key backup option</li>
+        </ul>
+
+        <div class="signup">
+            <input type="email" placeholder="Enter your email" id="email">
+            <!-- Honeypot field (hidden from users) -->
+            <input type="text" name="hp_field" id="hp_field" style="display:none;">
+            <button onclick="subscribe()">Notify Me</button>
+        </div>
+
+        <div class="certifications">
+            <h3>Our Certifications</h3>
+            <div class="cert-gallery">
+                <img src="./cert1.jpg" alt="Certification 1">
+                <img src="./CIPC.jpg" alt="Certification 2">
+                <img src="./SARS.jpg" alt="Certification 3">
+            </div>
+        </div>
+
+        <!-- Lightbox popup -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" alt="Certification">
+        </div>
+
+        <div class="footer">
+            © 2025 KeyCrypto. All rights reserved. |
+            <a href="terms-of-service.html">Terms of Service</a> |
+            <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>
+        </div>
+    </div>
+
+    <script>
+        // Floating crypto circles
+        const cryptoBg = document.getElementById('crypto-bg');
+        for (let i = 0; i < 25; i++) {
+            const div = document.createElement('div');
+            div.style.left = Math.random() * 100 + 'vw';
+            div.style.width = div.style.height = 20 + Math.random() * 25 + 'px';
+            div.style.animationDuration = 10 + Math.random() * 15 + 's';
+            cryptoBg.appendChild(div);
+        }
+
+        function subscribe() {
+            const email = document.getElementById('email').value;
+            const honeypot = document.getElementById('hp_field').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (honeypot) {
+                // Bot detected, silently ignore or show generic error
+                console.log("Bot detected. Submission ignored.");
+                return;
+            }
+
+            if (email && emailRegex.test(email)) {
+                fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+                    method: "POST",
+                    body: new URLSearchParams({ email })
+                }).then(() => alert(`Thanks! We'll notify you at ${email} when we launch.`))
+                    .catch(() => alert('Something went wrong.'));
+            } else {
+                alert('Please enter a valid email.');
+            }
+        }
+
+        // Certification gallery lightbox
+        const galleryImages = document.querySelectorAll('.cert-gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            lightboxImg.src = '';
+        }
+
+
+    </script>
+</body>
+
+</html>

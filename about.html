@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About — KeyCrypto Wallet</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <style>
+        :root {
+            --background: #140d0d;
+            --foreground: #ec7210;
+            --bg: #1c1212;
+            --card-bg: #1a1a1a;
+            --primary: #ec7210;
+            --accent: #ff8f40;
+            --text-main: #ffffff;
+            --text-light: #d6d6d6;
+            --text-muted: #aaaaaa;
+            --glass: rgba(20, 13, 13, 0.82);
+            --radius: 12px;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .page {
+            max-width: var(--max-width);
+            margin: 48px auto;
+            padding: 28px;
+            background: linear-gradient(180deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.85));
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(236, 114, 16, 0.06);
+        }
+
+        header.site-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 26px;
+        }
+
+        .logo img {
+            width: 72px;
+            height: auto;
+            border-radius: 10px;
+            filter: drop-shadow(0 6px 18px rgba(236, 114, 16, 0.08));
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--foreground);
+            letter-spacing: 0.2px;
+        }
+
+        .lead {
+            color: var(--text-light);
+            margin-top: 12px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            max-width: 90%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width:980px) {
+            .grid {
+                grid-template-columns: 1fr;
+                padding-bottom: 8px;
+            }
+
+            header.site-header {
+                flex-direction: row;
+                gap: 12px
+            }
+        }
+
+        main {
+            background: linear-gradient(180deg, rgba(20, 20, 20, 0.6), rgba(15, 15, 15, 0.6));
+            border-radius: var(--radius);
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        aside {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        section.block {
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-size: 0.98rem
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(26, 26, 26, 0.85), rgba(20, 20, 20, 0.85));
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid rgba(236, 114, 16, 0.04);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+        }
+
+        .muted {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .team-member {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            background: linear-gradient(180deg, rgba(16, 16, 16, 0.6), rgba(12, 12, 12, 0.6));
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(236, 114, 16, 0.08), rgba(255, 143, 64, 0.04));
+            border-radius: 10px;
+            display: inline-block;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .member-info h4 {
+            margin-bottom: 4px;
+            font-size: 0.98rem;
+            color: var(--foreground)
+        }
+
+        .member-info p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin: 0
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.86rem;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        .contact {
+            margin-top: 14px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.02);
+        }
+
+        a.cta {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 14px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: #0b0b0b;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(236, 114, 16, 0.12);
+        }
+
+        footer.site-footer {
+            margin-top: 20px;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            text-align: center;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .timeline {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 8px;
+        }
+
+        .timeline li {
+            margin: 10px 0;
+            padding-left: 8px;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .timeline li::before {
+            content: "";
+            position: absolute;
+            left: -2px;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px rgba(236, 114, 16, 0.12);
+        }
+
+        .legal-links {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .legal-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem
+        }
+
+        .footer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--secondary);
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="page" role="main" aria-labelledby="page-title">
+        <header class="site-header">
+            <div class="logo" aria-hidden="false">
+                <img src="./logo.webp" alt="KeyCrypto logo">
+            </div>
+            <div>
+                <h1 id="page-title">About KeyCrypto Wallet</h1>
+                <p class="lead">
+                    A Telegram-first wallet that blends safe key management with instant access — built to make crypto
+                    simple,
+                    reliable, and usable across the world.
+                </p>
+            </div>
+        </header>
+
+        <div class="grid">
+            <main>
+                <!-- Mission & Story -->
+                <section class="block" aria-labelledby="mission-heading">
+                    <h2 id="mission-heading">Our mission</h2>
+                    <p>
+                        KeyCrypto exists to remove unnecessary friction from everyday crypto use. We believe that secure
+                        asset ownership
+                        and broad accessibility should coexist — so we designed an experience where users can access
+                        wallets directly
+                        through Telegram without sacrificing safety or control.
+                    </p>
+
+                    <h2>Our story</h2>
+                    <p>
+                        The product began as a small experiment combining Telegram's reach with modern decentralized key
+                        management.
+                        Early users loved the simplicity — no downloads, no long seed phrases — but asked for stronger
+                        recovery and
+                        compliance safeguards. Since then we've focused on building a progressive wallet: instant to
+                        start, robust to
+                        recover, and flexible to integrate with fiat on- and off-ramps.
+                    </p>
+                </section>
+
+                <!-- How it works -->
+                <section class="block" aria-labelledby="how-heading">
+                    <h2 id="how-heading">How it works</h2>
+                    <p>
+                        KeyCrypto uses your Telegram identity to simplify access. When you open the bot, an encrypted
+                        wallet keypair
+                        is generated for you. Web3Auth handles decentralized key management so you can recover access
+                        using familiar
+                        authentication methods while retaining ownership. Typical flows include:
+                    </p>
+
+                    <div class="cards" role="list">
+                        <div class="card" role="listitem">
+                            <strong>Instant access</strong>
+                            <p class="muted">Start using the wallet immediately via our Telegram bot — no email signup
+                                or complex onboarding.</p>
+                        </div>
+
+                        <div class="card" role="listitem">
+                            <strong>Secure key storage</strong>
+                            <p class="muted">Private keys are encrypted, split, and stored using industry-standard
+                                techniques — including optional encrypted backups you control.</p>
+                        </div>
+
+                        <div class="card" role="listitem">
+                            <strong>Buy & sell</strong>
+                            <p class="muted">Integrated on-ramps and off-ramps let you convert local currency to crypto
+                                and back in supported regions.</p>
+                        </div>
+
+                        <div class="card" role="listitem">
+                            <strong>Open protocols</strong>
+                            <p class="muted">We interact with public blockchains (BTC, ETH) and standard token formats,
+                                enabling transfers to other wallets and services.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security -->
+                <section class="block" aria-labelledby="security-heading">
+                    <h2 id="security-heading">Technology & security</h2>
+                    <p>
+                        Security is central to the product design. We combine best practices from Web3 key management
+                        with practical
+                        recovery options so users are not locked out by lost credentials. Key highlights:
+                    </p>
+
+                    <ul class="timeline" aria-hidden="false">
+                        <li><strong>Web3Auth-backed key management</strong> — keys are generated and encrypted using a
+                            proven decentralized flow that reduces single-point-of-failure risk.</li>
+                        <li><strong>Encrypted backups</strong> — users can opt-in to download an encrypted backup stored
+                            client-side; only the user holds the decryption secret.</li>
+                        <li><strong>End-to-end encryption</strong> — all communications between the bot and backend
+                            services are encrypted in transit (TLS) and follow strict access controls.</li>
+                        <li><strong>Data minimization</strong> — we store only the data required to operate services and
+                            to comply with applicable regulations; personally identifying data is kept to a minimum.
+                        </li>
+                        <li><strong>Third-party audits</strong> — planned security audits and independent reviews for
+                            integrations and smart contract interactions.</li>
+                    </ul>
+
+                    <p class="muted">Note: While we take extensive precautions, no system is 100% immune. Users retain
+                        responsibility for their account access and should enable backups where appropriate.</p>
+                </section>
+
+                <!-- Roadmap -->
+                <section class="block" aria-labelledby="roadmap-heading">
+                    <h2 id="roadmap-heading">Roadmap & upcoming features</h2>
+                    <p>We prioritize features that increase utility and safety. Planned milestones include:</p>
+                    <ul class="timeline">
+                        <li><strong>Q4 2025:</strong> Wallet launch with BTC & ETH, basic on-ramps and off-ramps.</li>
+                        <li><strong>Q1 2026:</strong> TRC-20 tokens, expanded off-ramp partners, regional payment
+                            integrations.</li>
+                        <li><strong>Q2 2026:</strong> Rechargeable KeyCrypto Cards (global spend) and expanded fiat
+                            rails in additional countries.</li>
+                        <li><strong>Mid 2026:</strong> Staking & yield integration for select assets, improved analytics
+                            and portfolio tools.</li>
+                    </ul>
+                </section>
+
+                <!-- Partnerships & Compliance -->
+                <section class="block" aria-labelledby="partners-heading">
+                    <h2 id="partners-heading">Partnerships & compliance</h2>
+                    <p>
+                        We work with regulated payment providers and on-ramp partners to enable fiat flows. In each
+                        region we evaluate
+                        local rules and partner capabilities before enabling services. Our approach balances compliance
+                        with user
+                        privacy and ease of use.
+                    </p>
+                    <p class="muted">If you are a payments or compliance partner and would like to collaborate, please
+                        reach out via the contact
+                        information below.</p>
+                </section>
+            </main>
+
+            <aside aria-labelledby="aside-heading">
+                <h2 id="aside-heading">Quick facts</h2>
+
+                <div class="badge-row" role="list">
+                    <div class="badge" role="listitem">Telegram-first UX</div>
+                    <div class="badge" role="listitem">Web3Auth key management</div>
+                    <div class="badge" role="listitem">BTC & ETH at launch</div>
+                    <div class="badge" role="listitem">Encrypted backups (opt-in)</div>
+                </div>
+
+                <!-- <div class="block" style="margin-top:14px">
+          <h2>Team</h2>
+          <div class="team-grid" role="list">
+            <div class="team-member" role="listitem">
+              <div class="avatar"><img src="./team/jay.jpg" alt="Jay (Co-founder & CEO)"></div>
+              <div class="member-info">
+                <h4>Jay Patel</h4>
+                <p class="muted">Co-founder & CEO — product lead with a background in payments and blockchain UX design.</p>
+              </div>
+            </div>
+
+            <div class="team-member" role="listitem">
+              <div class="avatar"><img src="./team/anya.jpg" alt="Anya (CTO)"></div>
+              <div class="member-info">
+                <h4>Anya Rodriguez</h4>
+                <p class="muted">CTO — systems architect focused on secure key management and distributed systems.</p>
+              </div>
+            </div>
+
+            <div class="team-member" role="listitem">
+              <div class="avatar"><img src="./team/rahul.jpg" alt="Rahul (Head of Integrations)"></div>
+              <div class="member-info">
+                <h4>Rahul Sharma</h4>
+                <p class="muted">Head of Integrations — responsible for fiat rails, partner integrations, and API design.</p>
+              </div>
+            </div>
+
+            <div class="team-member" role="listitem">
+              <div class="avatar"><img src="./team/lex.jpg" alt="Lex (Security Lead)"></div>
+              <div class="member-info">
+                <h4>Lex Morgan</h4>
+                <p class="muted">Security Lead — former security engineer with experience in audits, pen testing and secure deployments.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact">
+            <p class="muted">Want to join the team? We're hiring for engineering, product, and support roles.</p>
+            <a class="cta" href="mailto:team@keycrypto.pro?subject=Careers%20at%20KeyCrypto">Careers & Partnerships</a>
+          </div>
+        </div> -->
+
+                <div class="block" style="margin-top:16px">
+                    <h2>Contact & support</h2>
+                    <p class="muted">General inquiries, partnerships and press:</p>
+                    <p><a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a></p>
+                    <p class="muted">Telegram support:</p>
+                    <p><a href="https://t.me/keycrypto_guide" target="_blank" rel="noopener">t.me/keycrypto_guide</a>
+                    </p>
+                </div>
+
+                <div class="block" style="margin-top:14px">
+                    <h2>Certifications & press</h2>
+                    <div class="badge-row">
+                        <div class="badge">ISO-style review (planned)</div>
+                        <div class="badge">Third-party audit (planned)</div>
+                        <div class="badge">Compliance reviews</div>
+                    </div>
+
+                    <div class="legal-links">
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            © 2025 KeyCrypto. All rights reserved. |
+            <a href="index.html">Home</a> |
+            <a href="terms-of-service.html">Terms of Service</a> |
+            <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>
+        </footer>
+    </div>
+</body>
+
+</html>

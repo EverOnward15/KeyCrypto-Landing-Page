@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyCrypto Wallet - FAQ</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <style>
+        :root {
+            --background: #140d0d;
+            --foreground: #ec7210;
+            --bg: #1c1212;
+            --card-bg: #1a1a1a;
+            --highlight: #ec7210;
+            --primary: #ec7210;
+            --secondary: #d9650e;
+            --accent: #ff8f40;
+            --text-main: #ffffff;
+            --text-light: #d6d6d6;
+            --text-muted: #aaaaaa;
+            --glass: rgba(20, 13, 13, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: var(--glass);
+            padding: 40px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            width: 90%;
+            margin: 60px auto;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--foreground);
+            margin-bottom: 25px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 18px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: rgba(236, 114, 16, 0.05);
+        }
+
+        .faq-question span {
+            font-size: 1.2rem;
+            color: var(--accent);
+            transition: transform 0.2s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: var(--card-bg);
+            padding: 0 20px;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .footer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--secondary);
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+
+
+        <div class="faq-item">
+            <button class="faq-question">What is KeyCrypto Wallet? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    KeyCrypto is a Telegram-first crypto wallet that lets you buy, send, and receive digital assets
+                    instantly —
+                    without downloading any apps or creating traditional accounts. Access it directly through
+                    <a href="https://t.me/WebThreeWallet_Bot" target="_blank">@WebThreeWallet_Bot</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Do I need to sign up or remember a password? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    No. Your wallet is generated securely through
+                    <a href="https://web3auth.io/docs/how-web3auth-works" target="_blank">Web3Auth</a>. You log in with
+                    your
+                    Telegram account — no passwords or seed phrases required.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Which cryptocurrencies are supported? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    At launch, KeyCrypto will support Bitcoin (BTC) and Ethereum (ETH). TRC-20 tokens, stablecoins, and
+                    crypto
+                    cards will be added in 2026.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is my private key secure? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    Yes. Your private key is encrypted and managed securely through Web3Auth’s decentralized key system.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Can I buy crypto with my local currency? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    Yes. KeyCrypto partners with trusted global payment providers, allowing you to purchase crypto via
+                    credit
+                    cards, bank transfers, or regional methods.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Can I withdraw to other wallets or bank accounts? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    Absolutely. You can send your BTC or ETH to any address and off-ramp to bank or mobile money
+                    accounts in
+                    supported regions.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What if I delete the Telegram chat or switch phones? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    Just log back into Telegram using the same account — your wallet will sync automatically. We recommend using the Download Private Key option to securely save a backup of your key to your local device just in case. You can use this key to recreate your wallet on several mainstream wallet apps.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is KeyCrypto custodial or non-custodial? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    KeyCrypto is a semi-custodial wallet powered by Web3Auth. You maintain ownership of your keys, while
+                    access and
+                    recovery are simplified via your Telegram identity.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is KeyCrypto available worldwide? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    Yes, it’s accessible globally through Telegram. However, specific payment and off-ramp services may
+                    vary by
+                    country or region.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How can I contact support? <span>+</span></button>
+            <div class="faq-answer">
+                <p>
+                    You can contact us via Telegram at
+                    <a href="https://t.me/keycrypto_guide" target="_blank">@KeyCrypto_Guide</a> or email us at
+                    <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        © 2025 KeyCrypto. All rights reserved. |
+        <a href="index.html">Home</a> |
+        <a href="terms-of-service.html">Terms of Service</a> |
+        <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+
+                // Close others when one opens
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) item.classList.remove('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

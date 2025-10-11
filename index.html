@@ -659,7 +659,7 @@
             }
 
             if (email && emailRegex.test(email)) {
-                fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+                fetch("https://script.google.com/macros/s/AKfycbyx81Jjvm5NyaCa3dzI65nrMai7b4bRxgjhN0GehtbsOXZT5a-Z1tk0mfQauNCLyOJf/exec", {
                     method: "POST",
                     body: new URLSearchParams({ email })
                 }).then(() => alert(`Thanks! We'll notify you at ${email} when we launch.`))

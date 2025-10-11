@@ -608,10 +608,17 @@
     </section>
 
     <div class="signup">
-        <input type="email" placeholder="Enter your email" id="email">
-        <!-- Honeypot field (hidden from users) -->
-        <input type="text" name="hp_field" id="hp_field" style="display:none;">
-        <button onclick="subscribe()">Notify Me</button>
+        <form id="signupForm"
+            action="https://script.google.com/macros/s/AKfycbyx81Jjvm5NyaCa3dzI65nrMai7b4bRxgjhN0GehtbsOXZT5a-Z1tk0mfQauNCLyOJf/exec"
+            method="POST" target="hidden_iframe" onsubmit="return handleFormSubmit(event)">
+            <input name="email" id="email" type="email" placeholder="Enter your email" required />
+            <!-- Honeypot -->
+            <input name="website" id="hp_field" type="text" style="display:none" tabindex="-1" autocomplete="off" />
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- hidden iframe to avoid page reload -->
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
     </div>
 
     <div class="certifications">
@@ -635,7 +642,6 @@
         <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>
     </footer>
 
-
     <script>
         // Floating crypto circles
         const cryptoBg = document.getElementById('crypto-bg');
@@ -647,26 +653,28 @@
             cryptoBg.appendChild(div);
         }
 
-        function subscribe() {
-            const email = document.getElementById('email').value;
+        // Handle form submission (front-end validation + honeypot)
+        function handleFormSubmit(e) {
+            const email = document.getElementById('email').value.trim();
             const honeypot = document.getElementById('hp_field').value;
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+            // If honeypot is filled → it's a bot
             if (honeypot) {
-                // Bot detected, silently ignore or show generic error
-                console.log("Bot detected. Submission ignored.");
-                return;
+                console.log('Bot detected — submission ignored.');
+                return false; // block submission
             }
 
-            if (email && emailRegex.test(email)) {
-                fetch("https://script.google.com/macros/s/AKfycbyx81Jjvm5NyaCa3dzI65nrMai7b4bRxgjhN0GehtbsOXZT5a-Z1tk0mfQauNCLyOJf/exec", {
-                    method: "POST",
-                    body: new URLSearchParams({ email })
-                }).then(() => alert(`Thanks! We'll notify you at ${email} when we launch.`))
-                    .catch(() => alert('Something went wrong.'));
-            } else {
-                alert('Please enter a valid email.');
+            if (!email || !emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
             }
+
+            // Optional: show quick feedback
+            alert(`Thanks! We'll notify you at ${email} when we launch.`);
+
+            // Allow normal HTML form submission (no JS fetch → avoids CORS)
+            return true;
         }
 
         // Certification gallery lightbox
@@ -674,7 +682,7 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
-        galleryImages.forEach(img => {
+        galleryImages.forEach((img) => {
             img.addEventListener('click', () => {
                 lightbox.style.display = 'flex';
                 lightboxImg.src = img.src;
@@ -685,8 +693,6 @@
             lightbox.style.display = 'none';
             lightboxImg.src = '';
         }
-
-
     </script>
 </body>
 

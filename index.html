@@ -507,6 +507,29 @@
         .roadmap strong {
             color: var(--primary);
         }
+
+        /* Make the language button responsive */
+        @media (max-width: 600px) {
+            .header-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .lang-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                margin-left: 0;
+                order: 99;
+                /* Push it below links if needed */
+            }
+
+            .header-nav a {
+                margin: 5px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
@@ -733,7 +756,20 @@
                 certTitle: "Our Certifications",
                 footer: "© 2025 KeyCrypto. All rights reserved.",
                 menuAbout: "About",
-                menuFAQ: "FAQ"
+                menuFAQ: "FAQ",
+                featureCard1Title: "On-Ramp",
+                featureCard1Text: "Buy crypto directly with your local currency using trusted global payment methods.",
+                featureCard2Title: "Off-Ramp",
+                featureCard2Text: "Withdraw your BTC, ETH, or stablecoins to bank accounts or mobile money worldwide.",
+                featureCard3Title: "Multi-Asset Support",
+                featureCard3Text: "Bitcoin & Ethereum at launch, TRC-20 tokens and more assets coming soon.",
+                featureCard4Title: "Encrypted Backups",
+                featureCard4Text: "Your keys, your control. Backup securely with Web3Auth encryption.",
+                featureCard5Title: "Instant Wallet Access",
+                featureCard5Text: "Start using your wallet immediately via Telegram, no signup required.",
+                featureCard6Title: "Global Payments",
+                featureCard6Text: "Supports worldwide payment methods so you can buy and sell crypto wherever you are.",
+
             },
             ru: {
                 coming: "Запуск в ноябре 2025",
@@ -754,7 +790,20 @@
                 certTitle: "Наши Сертификаты",
                 footer: "© 2025 KeyCrypto. Все права защищены.",
                 menuAbout: "О нас",
-                menuFAQ: "Часто задаваемые вопросы"
+                menuFAQ: "Часто задаваемые вопросы",
+
+                featureCard1Title: "Он-Рамп",
+                featureCard1Text: "Покупайте криптовалюту напрямую за местную валюту через надёжные глобальные платёжные методы.",
+                featureCard2Title: "Офф-Рамп",
+                featureCard2Text: "Выводите BTC, ETH или стейблкоины на банковские счета или мобильные деньги по всему миру.",
+                featureCard3Title: "Поддержка множества активов",
+                featureCard3Text: "Bitcoin & Ethereum на старте, поддержка TRC-20 и других активов скоро.",
+                featureCard4Title: "Шифрованное резервное копирование",
+                featureCard4Text: "Ваши ключи — ваш контроль. Безопасное резервное копирование через Web3Auth.",
+                featureCard5Title: "Мгновенный доступ к кошельку",
+                featureCard5Text: "Начните использовать кошелёк сразу через Telegram, без регистрации.",
+                featureCard6Title: "Глобальные платежи",
+                featureCard6Text: "Поддержка платёжных методов по всему миру, чтобы покупать и продавать криптовалюту где угодно.",
             }
         };
 
@@ -779,7 +828,25 @@
         // Function to set language
         function setLanguage(lang) {
             const t = translations[lang];
+            const featureCards = document.querySelectorAll('.feature-card');
 
+            featureCards[0].querySelector('h3').textContent = t.featureCard1Title;
+            featureCards[0].querySelector('p').textContent = t.featureCard1Text;
+
+            featureCards[1].querySelector('h3').textContent = t.featureCard2Title;
+            featureCards[1].querySelector('p').textContent = t.featureCard2Text;
+
+            featureCards[2].querySelector('h3').textContent = t.featureCard3Title;
+            featureCards[2].querySelector('p').textContent = t.featureCard3Text;
+
+            featureCards[3].querySelector('h3').textContent = t.featureCard4Title;
+            featureCards[3].querySelector('p').textContent = t.featureCard4Text;
+
+            featureCards[4].querySelector('h3').textContent = t.featureCard5Title;
+            featureCards[4].querySelector('p').textContent = t.featureCard5Text;
+
+            featureCards[5].querySelector('h3').textContent = t.featureCard6Title;
+            featureCards[5].querySelector('p').textContent = t.featureCard6Text;
             // Update toggle button
             langToggle.textContent = lang === "en" ? "RU" : "EN";
 

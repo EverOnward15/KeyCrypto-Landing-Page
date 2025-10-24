@@ -128,6 +128,23 @@
             text-decoration: underline;
         }
 
+        .lang-btn {
+            background: var(--secondary);
+            color: var(--text-main);
+            border: none;
+            border-radius: 6px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            margin-left: 15px;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent);
+        }
+
+
         /* Mobile-friendly adjustments */
         @media (max-width: 600px) {
             .header-inner {
@@ -504,6 +521,7 @@
             <nav class="header-nav">
                 <a href="about.html">About</a>
                 <a href="faq.html">FAQ</a>
+                <button id="lang-toggle" class="lang-btn">RU</button>
             </nav>
         </div>
     </header>
@@ -693,6 +711,76 @@
             lightbox.style.display = 'none';
             lightboxImg.src = '';
         }
+
+        if (localStorage.getItem("lang") === "ru") setLanguage("ru");
+
+        // --- Language Switcher ---
+        const translations = {
+            ru: {
+                "coming": "Запуск в ноябре 2025",
+                "walletTitle": "Кошелёк KeyCrypto",
+                "walletSubtitle": "Telegram-кошелёк: мгновенный доступ без регистрации",
+                "feature1": "Используйте через Telegram — без регистрации и паролей",
+                "feature2": "Мы создаём ваш кошелёк / приватный ключ <a href='https://web3auth.io/docs/how-web3auth-works'>безопасно с Web3Auth</a>",
+                "feature3": "BTC и ETH на старте, поддержка TRC-20 и криптокарт скоро",
+                "feature4": "Поддержка глобальных методов оплаты",
+                "feature5": "Шифрованное резервное копирование ключей",
+                "aboutTitle": "О KeyCrypto",
+                "aboutText": "KeyCrypto Wallet создан для нового поколения пользователей, которые хотят мгновенный и безопасный доступ к цифровым активам без лишней сложности.",
+                "whatTitle": "Что вы можете делать",
+                "roadmapTitle": "Наш план развития",
+                "whyTitle": "Почему выбирают KeyCrypto",
+                "whyText": "Мы совмещаем передовые технологии и сертификацию, чтобы создать надёжный кошелёк. KeyCrypto подходит как новичкам, так и профессионалам.",
+                "submit": "Отправить",
+                "certTitle": "Наши Сертификаты",
+                "footer": "© 2025 KeyCrypto. Все права защищены."
+            }
+        };
+
+        // Detect and switch language
+        const langToggle = document.getElementById("lang-toggle");
+        let currentLang = "en";
+
+        langToggle.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "ru" : "en";
+            setLanguage(currentLang);
+            localStorage.setItem("lang", currentLang);
+
+        });
+
+
+        function setLanguage(lang) {
+            if (lang === "ru") {
+                langToggle.textContent = "EN";
+                document.querySelector(".coming-soon").textContent = translations.ru.coming;
+                document.querySelector("h1").textContent = translations.ru.walletTitle;
+                document.querySelector("h2").textContent = translations.ru.walletSubtitle;
+
+                const features = document.querySelectorAll(".features li");
+                features[0].innerHTML = translations.ru.feature1;
+                features[1].innerHTML = translations.ru.feature2;
+                features[2].innerHTML = translations.ru.feature3;
+                features[3].innerHTML = translations.ru.feature4;
+                features[4].innerHTML = translations.ru.feature5;
+
+                document.querySelector('.section:nth-of-type(1) h2').textContent = translations.ru.aboutTitle;
+                document.querySelector('.section:nth-of-type(1) p').textContent = translations.ru.aboutText;
+
+                document.querySelector('.features-section h2').textContent = translations.ru.whatTitle;
+                document.querySelector('.roadmap h2').textContent = translations.ru.roadmapTitle;
+                document.querySelector('.why-us h2').textContent = translations.ru.whyTitle;
+                document.querySelector('.why-us p').textContent = translations.ru.whyText;
+                document.querySelector('.certifications h3').textContent = translations.ru.certTitle;
+
+                document.querySelector('.signup button').textContent = translations.ru.submit;
+
+                document.querySelector('.footer').childNodes[0].textContent = translations.ru.footer + " | ";
+            } else {
+                langToggle.textContent = "RU";
+                location.reload(); // simple revert to English
+            }
+        }
+
     </script>
 </body>
 

@@ -26,12 +26,12 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif
+            font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
         }
 
         html,
         body {
-            height: 100%
+            height: 100%;
         }
 
         body {
@@ -288,7 +288,6 @@
             margin-top: 60px;
         }
 
-
         a {
             color: var(--accent);
             text-decoration: none;
@@ -299,230 +298,390 @@
             text-decoration: underline;
         }
 
+        /* Language toggle button */
+        .lang-toggle {
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 8px 14px;
+            background: var(--primary);
+            color: #0b0b0b;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .lang-ru {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="page" role="main" aria-labelledby="page-title">
-        <header class="site-header">
-            <div class="logo" aria-hidden="false">
-                <img src="./logo.webp" alt="KeyCrypto logo">
-            </div>
-            <div>
-                <h1 id="page-title">About KeyCrypto Wallet</h1>
-                <p class="lead">
-                    A Telegram-first wallet that blends safe key management with instant access — built to make crypto
-                    simple,
-                    reliable, and usable across the world.
-                </p>
-            </div>
-        </header>
 
-        <div class="grid">
-            <main>
-                <!-- Mission & Story -->
-                <section class="block" aria-labelledby="mission-heading">
-                    <h2 id="mission-heading">Our mission</h2>
-                    <p>
-                        KeyCrypto was created as a very simple, beginner-friendly and maximally-secure crypto wallet. We believe that secure
-                        asset ownership
-                        and broad accessibility should coexist — so we designed an experience where users can access
-                        wallets directly
-                        through Telegram without sacrificing safety or control.
-                    </p>
+        <!-- Language Switcher -->
+        <div class="lang-toggle" onclick="toggleLang()">RU</div>
 
-                    <h2>Our story</h2>
-                    <p>
-                        The product began as a small experiment combining Telegram's reach with modern decentralized key
-                        management.
-                        Early users loved the simplicity — no downloads, no long seed phrases — but asked for stronger
-                        recovery and
-                        compliance safeguards. Since then we've focused on building a progressive wallet: instant to
-                        start, robust to
-                        recover, and flexible to integrate with fiat on- and off-ramps.
-                    </p>
-                </section>
+        <!-- English Content -->
+        <div class="lang-en">
 
-                <!-- How it works -->
-                <section class="block" aria-labelledby="how-heading">
-                    <h2 id="how-heading">How it works</h2>
-                    <p>
-                        KeyCrypto uses your Telegram identity to simplify access. When you open the bot, an encrypted
-                        wallet keypair
-                        is generated for you. Web3Auth handles decentralized key management so you can recover access
-                        using familiar
-                        authentication methods while retaining ownership. Typical flows include:
-                    </p>
-
-                    <div class="cards" role="list">
-                        <div class="card" role="listitem">
-                            <strong>Instant access</strong>
-                            <p class="muted">Start using the wallet immediately via our Telegram bot — no email signup
-                                or complex onboarding.</p>
-                        </div>
-
-                        <div class="card" role="listitem">
-                            <strong>Secure key storage</strong>
-                            <p class="muted">Private keys are encrypted, split, and stored using industry-standard
-                                techniques — including optional encrypted backups you control.</p>
-                        </div>
-
-                        <div class="card" role="listitem">
-                            <strong>Buy & sell</strong>
-                            <p class="muted">Integrated on-ramps and off-ramps let you convert local currency to crypto
-                                and back in supported regions.</p>
-                        </div>
-
-                        <div class="card" role="listitem">
-                            <strong>Open protocols</strong>
-                            <p class="muted">We interact with public blockchains (BTC, ETH) and standard token formats,
-                                enabling transfers to other wallets and services.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Security -->
-                <section class="block" aria-labelledby="security-heading">
-                    <h2 id="security-heading">Technology & security</h2>
-                    <p>
-                        Security is central to the product design. We combine best practices from Web3 key management
-                        with practical
-                        recovery options so users are not locked out by lost credentials. Key highlights:
-                    </p>
-
-                    <ul class="timeline" aria-hidden="false">
-                        <li><strong>Web3Auth-backed key management</strong> — keys are generated and encrypted using a
-                            proven decentralized flow that reduces single-point-of-failure risk.</li>
-                        <li><strong>Encrypted backups</strong> — users can opt-in to download an encrypted backup stored
-                            client-side; only the user holds the decryption secret.</li>
-                        <li><strong>End-to-end encryption</strong> — all communications between the bot and backend
-                            services are encrypted in transit (TLS) and follow strict access controls.</li>
-                        <li><strong>Data minimization</strong> — we store only the data required to operate services and
-                            to comply with applicable regulations; personally identifying data is kept to a minimum.
-                        </li>
-                        <li><strong>Third-party audits</strong> — planned security audits and independent reviews for
-                            integrations and smart contract interactions.</li>
-                    </ul>
-
-                    <p class="muted">Note: While we take extensive precautions, no system is 100% immune. Users retain
-                        responsibility for their account access and should enable backups where appropriate.</p>
-                </section>
-
-                <!-- Roadmap -->
-                <section class="block" aria-labelledby="roadmap-heading">
-                    <h2 id="roadmap-heading">Roadmap & upcoming features</h2>
-                    <p>We prioritize features that increase utility and safety. Planned milestones include:</p>
-                    <ul class="timeline">
-                        <li><strong>Q4 2025:</strong> Wallet launch with BTC, ETH, USDT (ERC-20), basic on-ramps and off-ramps.</li>
-                        <li><strong>Q1 2026:</strong> TRC-20 tokens, expanded off-ramp partners, regional payment
-                            integrations.</li>
-                        <li><strong>Q2 2026:</strong> Rechargeable KeyCrypto Cards (global spend) and expanded fiat
-                            rails in additional countries.</li>
-                        <li><strong>Mid 2026:</strong> Staking & yield integration for select assets, improved analytics
-                            and portfolio tools.</li>
-                    </ul>
-                </section>
-
-                <!-- Partnerships & Compliance -->
-                <section class="block" aria-labelledby="partners-heading">
-                    <h2 id="partners-heading">Partnerships & compliance</h2>
-                    <p>
-                        We work with regulated payment providers and on-ramp partners to enable fiat flows. In each
-                        region we evaluate
-                        local rules and partner capabilities before enabling services. Our approach balances compliance
-                        with user
-                        privacy and ease of use.
-                    </p>
-                    <p class="muted">If you are a payments or compliance partner and would like to collaborate, please
-                        reach out via the contact
-                        information below.</p>
-                </section>
-            </main>
-
-            <aside aria-labelledby="aside-heading">
-                <h2 id="aside-heading">Quick facts</h2>
-
-                <div class="badge-row" role="list">
-                    <div class="badge" role="listitem">Telegram-first UX</div>
-                    <div class="badge" role="listitem">Web3Auth key management</div>
-                    <div class="badge" role="listitem">BTC, ETH, and USDT (ERC-20) at launch</div>
-                    <div class="badge" role="listitem">Encrypted backups (opt-in)</div>
+            <header class="site-header">
+                <div class="logo" aria-hidden="false">
+                    <img src="./logo.webp" alt="KeyCrypto logo">
                 </div>
-
-                <!-- <div class="block" style="margin-top:14px">
-          <h2>Team</h2>
-          <div class="team-grid" role="list">
-            <div class="team-member" role="listitem">
-              <div class="avatar"><img src="./team/jay.jpg" alt="Jay (Co-founder & CEO)"></div>
-              <div class="member-info">
-                <h4>Jay Patel</h4>
-                <p class="muted">Co-founder & CEO — product lead with a background in payments and blockchain UX design.</p>
-              </div>
-            </div>
-
-            <div class="team-member" role="listitem">
-              <div class="avatar"><img src="./team/anya.jpg" alt="Anya (CTO)"></div>
-              <div class="member-info">
-                <h4>Anya Rodriguez</h4>
-                <p class="muted">CTO — systems architect focused on secure key management and distributed systems.</p>
-              </div>
-            </div>
-
-            <div class="team-member" role="listitem">
-              <div class="avatar"><img src="./team/rahul.jpg" alt="Rahul (Head of Integrations)"></div>
-              <div class="member-info">
-                <h4>Rahul Sharma</h4>
-                <p class="muted">Head of Integrations — responsible for fiat rails, partner integrations, and API design.</p>
-              </div>
-            </div>
-
-            <div class="team-member" role="listitem">
-              <div class="avatar"><img src="./team/lex.jpg" alt="Lex (Security Lead)"></div>
-              <div class="member-info">
-                <h4>Lex Morgan</h4>
-                <p class="muted">Security Lead — former security engineer with experience in audits, pen testing and secure deployments.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact">
-            <p class="muted">Want to join the team? We're hiring for engineering, product, and support roles.</p>
-            <a class="cta" href="mailto:team@keycrypto.pro?subject=Careers%20at%20KeyCrypto">Careers & Partnerships</a>
-          </div>
-        </div> -->
-
-                <div class="block" style="margin-top:16px">
-                    <h2>Contact & support</h2>
-                    <p class="muted">General inquiries, partnerships and press:</p>
-                    <p><a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a></p>
-                    <p class="muted">Telegram support:</p>
-                    <p><a href="https://t.me/keycrypto_guide" target="_blank" rel="noopener">t.me/keycrypto_guide</a>
+                <div>
+                    <h1 id="page-title">About KeyCrypto Wallet</h1>
+                    <p class="lead">
+                        A Telegram-first wallet that blends safe key management with instant access — built to make
+                        crypto simple,
+                        reliable, and usable across the world.
                     </p>
                 </div>
+            </header>
 
-                <div class="block" style="margin-top:14px">
-                    <h2>Certifications & press</h2>
-                    <div class="badge-row">
-                        <div class="badge">ISO-style review (planned)</div>
-                        <div class="badge">Third-party audit (planned)</div>
-                        <div class="badge">Compliance reviews</div>
+            <div class="grid">
+                <main>
+                    <section class="block" aria-labelledby="mission-heading">
+                        <h2 id="mission-heading">Our mission</h2>
+                        <p>
+                            KeyCrypto was created as a very simple, beginner-friendly and maximally-secure crypto
+                            wallet. We believe that secure
+                            asset ownership and broad accessibility should coexist — so we designed an experience where
+                            users can access
+                            wallets directly through Telegram without sacrificing safety or control.
+                        </p>
+
+                        <h2>Our story</h2>
+                        <p>
+                            The product began as a small experiment combining Telegram's reach with modern decentralized
+                            key
+                            management. Early users loved the simplicity — no downloads, no long seed phrases — but
+                            asked for stronger
+                            recovery and compliance safeguards. Since then we've focused on building a progressive
+                            wallet: instant to start,
+                            robust to recover, and flexible to integrate with fiat on- and off-ramps.
+                        </p>
+                    </section>
+
+                    <section class="block" aria-labelledby="how-heading">
+                        <h2 id="how-heading">How it works</h2>
+                        <p>
+                            KeyCrypto uses your Telegram identity to simplify access. When you open the bot, an
+                            encrypted wallet keypair
+                            is generated for you. Web3Auth handles decentralized key management so you can recover
+                            access using familiar
+                            authentication methods while retaining ownership. Typical flows include:
+                        </p>
+
+                        <div class="cards" role="list">
+                            <div class="card" role="listitem">
+                                <strong>Instant access</strong>
+                                <p class="muted">Start using the wallet immediately via our Telegram bot — no email
+                                    signup or complex onboarding.</p>
+                            </div>
+                            <div class="card" role="listitem">
+                                <strong>Secure key storage</strong>
+                                <p class="muted">Private keys are encrypted, split, and stored using industry-standard
+                                    techniques — including optional encrypted backups you control.</p>
+                            </div>
+                            <div class="card" role="listitem">
+                                <strong>Buy & sell</strong>
+                                <p class="muted">Integrated on-ramps and off-ramps let you convert local currency to
+                                    crypto and back in supported regions.</p>
+                            </div>
+                            <div class="card" role="listitem">
+                                <strong>Open protocols</strong>
+                                <p class="muted">We interact with public blockchains (BTC, ETH) and standard token
+                                    formats, enabling transfers to other wallets and services.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="block" aria-labelledby="security-heading">
+                        <h2 id="security-heading">Technology & security</h2>
+                        <p>
+                            Security is central to the product design. We combine best practices from Web3 key
+                            management with practical
+                            recovery options so users are not locked out by lost credentials. Key highlights:
+                        </p>
+
+                        <ul class="timeline" aria-hidden="false">
+                            <li><strong>Web3Auth-backed key management</strong> — keys are generated and encrypted using
+                                a proven decentralized flow that reduces single-point-of-failure risk.</li>
+                            <li><strong>Encrypted backups</strong> — users can opt-in to download an encrypted backup
+                                stored client-side; only the user holds the decryption secret.</li>
+                            <li><strong>End-to-end encryption</strong> — all communications between the bot and backend
+                                services are encrypted in transit (TLS) and follow strict access controls.</li>
+                            <li><strong>Data minimization</strong> — we store only the data required to operate services
+                                and to comply with applicable regulations; personally identifying data is kept to a
+                                minimum.</li>
+                            <li><strong>Third-party audits</strong> — planned security audits and independent reviews
+                                for integrations and smart contract interactions.</li>
+                        </ul>
+
+                        <p class="muted">Note: While we take extensive precautions, no system is 100% immune. Users
+                            retain responsibility for their account access and should enable backups where appropriate.
+                        </p>
+                    </section>
+
+                    <section class="block" aria-labelledby="roadmap-heading">
+                        <h2 id="roadmap-heading">Roadmap & upcoming features</h2>
+                        <p>We prioritize features that increase utility and safety. Planned milestones include:</p>
+                        <ul class="timeline">
+                            <li><strong>Q4 2025:</strong> Wallet launch with BTC, ETH, USDT (ERC-20), basic on-ramps and
+                                off-ramps.</li>
+                            <li><strong>Q1 2026:</strong> TRC-20 tokens, expanded off-ramp partners, regional payment
+                                integrations.</li>
+                            <li><strong>Q2 2026:</strong> Rechargeable KeyCrypto Cards (global spend) and expanded fiat
+                                rails in additional countries.</li>
+                            <li><strong>Mid 2026:</strong> Staking & yield integration for select assets, improved
+                                analytics and portfolio tools.</li>
+                        </ul>
+                    </section>
+
+                    <section class="block" aria-labelledby="partners-heading">
+                        <h2 id="partners-heading">Partnerships & compliance</h2>
+                        <p>
+                            We work with regulated payment providers and on-ramp partners to enable fiat flows. In each
+                            region we evaluate local rules and partner capabilities before enabling services. Our
+                            approach balances compliance with user privacy and ease of use.
+                        </p>
+                        <p class="muted">If you are a payments or compliance partner and would like to collaborate,
+                            please reach out via the contact information below.</p>
+                    </section>
+                </main>
+
+                <aside aria-labelledby="aside-heading">
+                    <h2 id="aside-heading">Quick facts</h2>
+
+                    <div class="badge-row" role="list">
+                        <div class="badge" role="listitem">Telegram-first UX</div>
+                        <div class="badge" role="listitem">Web3Auth key management</div>
+                        <div class="badge" role="listitem">BTC, ETH, and USDT (ERC-20) at launch</div>
+                        <div class="badge" role="listitem">Encrypted backups (opt-in)</div>
                     </div>
 
-                    <div class="legal-links">
-                        <a href="terms-of-service.html">Terms of Service</a>
-                        <a href="privacy-policy.html">Privacy Policy</a>
+                    <div class="block" style="margin-top:16px">
+                        <h2>Contact & support</h2>
+                        <p class="muted">General inquiries, partnerships and press:</p>
+                        <p><a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a></p>
+                        <p class="muted">Telegram support:</p>
+                        <p><a href="https://t.me/keycrypto_guide" target="_blank"
+                                rel="noopener">t.me/keycrypto_guide</a></p>
                     </div>
-                </div>
-            </aside>
+
+                    <div class="block" style="margin-top:14px">
+                        <h2>Certifications & press</h2>
+                        <div class="badge-row">
+                            <div class="badge">ISO-style review (planned)</div>
+                            <div class="badge">Third-party audit (planned)</div>
+                            <div class="badge">Compliance reviews</div>
+                        </div>
+
+                        <div class="legal-links">
+                            <a href="terms-of-service.html">Terms of Service</a>
+                            <a href="privacy-policy.html">Privacy Policy</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
         </div>
 
-        <footer class="footer">
-            © 2025 KeyCrypto. All rights reserved. |
-            <a href="index.html">Home</a> |
-            <a href="terms-of-service.html">Terms of Service</a> |
-            <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>
-        </footer>
+        <!-- Russian Content -->
+        <div class="lang-ru">
+
+            <header class="site-header">
+                <div class="logo" aria-hidden="false">
+                    <img src="./logo.webp" alt="Логотип KeyCrypto">
+                </div>
+                <div>
+                    <h1 id="page-title">О кошельке KeyCrypto</h1>
+                    <p class="lead">
+                        Telegram-первый кошелек, который сочетает безопасное управление ключами с мгновенным доступом —
+                        создан, чтобы сделать крипто простой,
+                        надежной и доступной по всему миру.
+                    </p>
+                </div>
+            </header>
+
+            <div class="grid">
+                <main>
+                    <section class="block" aria-labelledby="mission-heading">
+                        <h2 id="mission-heading">Наша миссия</h2>
+                        <p>
+                            KeyCrypto создан как максимально простой, безопасный и удобный кошелек для новичков. Мы
+                            считаем, что безопасность владения активами
+                            и широкая доступность должны сосуществовать — поэтому мы разработали опыт, позволяющий
+                            пользователям получать доступ к кошелькам
+                            прямо через Telegram без потери безопасности и контроля.
+                        </p>
+
+                        <h2>Наша история</h2>
+                        <p>
+                            Продукт начался как небольшой эксперимент, объединяющий возможности Telegram с современным
+                            децентрализованным управлением ключами.
+                            Ранние пользователи оценили простоту — без загрузок и длинных seed-фраз — но попросили
+                            усиленные средства восстановления и соответствия требованиям.
+                            С тех пор мы сосредоточились на создании прогрессивного кошелька: мгновенный старт, надежное
+                            восстановление и гибкая интеграция с фиатными шлюзами.
+                        </p>
+                    </section>
+
+                    <section class="block" aria-labelledby="how-heading">
+                        <h2 id="how-heading">Как это работает</h2>
+                        <p>
+                            KeyCrypto использует вашу учетную запись Telegram для упрощения доступа. При открытии бота
+                            создается зашифрованная пара ключей кошелька.
+                            Web3Auth управляет децентрализованным хранением ключей, позволяя восстанавливать доступ с
+                            помощью знакомых методов аутентификации, сохраняя владение.
+                            Типичные сценарии включают:
+                        </p>
+
+                        <div class="cards" role="list">
+                            <div class="card" role="listitem">
+                                <strong>Мгновенный доступ</strong>
+                                <p class="muted">Начните использовать кошелек сразу через нашего бота в Telegram — без
+                                    регистрации по электронной почте и сложного процесса onboarding.</p>
+                            </div>
+                            <div class="card" role="listitem">
+                                <strong>Безопасное хранение ключей</strong>
+                                <p class="muted">Приватные ключи шифруются, разделяются и хранятся с использованием
+                                    стандартных индустриальных методов — включая опциональные зашифрованные резервные
+                                    копии под вашим контролем.</p>
+                            </div>
+                            <div class="card" role="listitem">
+                                <strong>Покупка и продажа</strong>
+                                <p class="muted">Интегрированные фиатные шлюзы позволяют конвертировать локальную валюту
+                                    в крипто и обратно в поддерживаемых регионах.</p>
+                            </div>
+                            <div class="card" role="listitem">
+                                <strong>Открытые протоколы</strong>
+                                <p class="muted">Мы взаимодействуем с публичными блокчейнами (BTC, ETH) и стандартными
+                                    токенами, позволяя совершать переводы на другие кошельки и сервисы.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="block" aria-labelledby="security-heading">
+                        <h2 id="security-heading">Технологии и безопасность</h2>
+                        <p>
+                            Безопасность — ключевой элемент дизайна продукта. Мы используем лучшие практики управления
+                            ключами Web3 с практическими
+                            возможностями восстановления, чтобы пользователи не теряли доступ к своим учетным записям.
+                            Основные моменты:
+                        </p>
+
+                        <ul class="timeline" aria-hidden="false">
+                            <li><strong>Управление ключами через Web3Auth</strong> — ключи создаются и шифруются через
+                                проверенный децентрализованный поток, снижая риск единой точки отказа.</li>
+                            <li><strong>Зашифрованные резервные копии</strong> — пользователи могут загрузить
+                                зашифрованную резервную копию, хранящуюся на клиенте; только пользователь имеет ключ для
+                                расшифровки.</li>
+                            <li><strong>End-to-end шифрование</strong> — все коммуникации между ботом и сервером
+                                шифруются при передаче (TLS) и соблюдают строгие правила доступа.</li>
+                            <li><strong>Минимизация данных</strong> — мы храним только данные, необходимые для работы
+                                сервиса и соблюдения применимых правил; личные данные сведены к минимуму.</li>
+                            <li><strong>Аудиты третьих сторон</strong> — плановые проверки безопасности и независимые
+                                обзоры интеграций и смарт-контрактов.</li>
+                        </ul>
+
+                        <p class="muted">Примечание: Несмотря на все меры, ни одна система не является полностью
+                            защищенной. Пользователи несут ответственность за доступ к своим аккаунтам и должны включать
+                            резервное копирование при необходимости.</p>
+                    </section>
+
+                    <section class="block" aria-labelledby="roadmap-heading">
+                        <h2 id="roadmap-heading">План развития и будущие функции</h2>
+                        <p>Мы приоритизируем функции, повышающие удобство и безопасность. Плановые этапы:</p>
+                        <ul class="timeline">
+                            <li><strong>Q4 2025:</strong> Запуск кошелька с BTC, ETH, USDT (ERC-20), базовые фиатные
+                                шлюзы.</li>
+                            <li><strong>Q1 2026:</strong> Токены TRC-20, расширение партнеров по обмену, региональные
+                                платежные интеграции.</li>
+                            <li><strong>Q2 2026:</strong> Карты KeyCrypto для оплаты по всему миру, расширенные фиатные
+                                шлюзы.</li>
+                            <li><strong>Mid 2026:</strong> Стейкинг и доходность для выбранных активов, улучшенная
+                                аналитика и инструменты портфеля.</li>
+                        </ul>
+                    </section>
+
+                    <section class="block" aria-labelledby="partners-heading">
+                        <h2 id="partners-heading">Партнерство и соответствие</h2>
+                        <p>
+                            Мы работаем с лицензированными платежными провайдерами и партнерами по фиатным шлюзам для
+                            предоставления услуг. В каждом регионе оцениваем правила и возможности партнеров перед
+                            запуском сервиса.
+                            Наш подход балансирует соответствие требованиям и конфиденциальность пользователей.
+                        </p>
+                        <p class="muted">Если вы являетесь платежным или compliance-партнером и хотите сотрудничать,
+                            свяжитесь с нами через контактную информацию ниже.</p>
+                    </section>
+                </main>
+
+                <aside aria-labelledby="aside-heading">
+                    <h2 id="aside-heading">Кратко</h2>
+
+                    <div class="badge-row" role="list">
+                        <div class="badge" role="listitem">Telegram-первый UX</div>
+                        <div class="badge" role="listitem">Web3Auth управление ключами</div>
+                        <div class="badge" role="listitem">BTC, ETH и USDT (ERC-20) при запуске</div>
+                        <div class="badge" role="listitem">Зашифрованные резервные копии (опционально)</div>
+                    </div>
+
+                    <div class="block" style="margin-top:16px">
+                        <h2>Контакты и поддержка</h2>
+                        <p class="muted">Общие вопросы, партнерство и пресс:</p>
+                        <p><a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a></p>
+                        <p class="muted">Поддержка Telegram:</p>
+                        <p><a href="https://t.me/keycrypto_guide" target="_blank"
+                                rel="noopener">t.me/keycrypto_guide</a></p>
+                    </div>
+
+                    <div class="block" style="margin-top:14px">
+                        <h2>Сертификация и пресс</h2>
+                        <div class="badge-row">
+                            <div class="badge">ISO-проверка (планируется)</div>
+                            <div class="badge">Аудит третьей стороной (планируется)</div>
+                            <div class="badge">Проверки соответствия</div>
+                        </div>
+
+                        <div class="legal-links">
+                            <a href="terms-of-service.html">Условия использования</a>
+                            <a href="privacy-policy.html">Политика конфиденциальности</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
     </div>
+
+    <!-- Footer outside container -->
+    <footer class="footer">
+        © 2025 KeyCrypto. All rights reserved. |
+        <a href="terms-of-service.html">Terms of Service</a> |
+        <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>
+    </footer>
+
+    <script>
+        function toggleLang() {
+            const en = document.querySelector('.lang-en');
+            const ru = document.querySelector('.lang-ru');
+            const btn = document.querySelector('.lang-toggle');
+
+            if (en.style.display === 'none') {
+                en.style.display = 'block';
+                ru.style.display = 'none';
+                btn.textContent = 'RU';
+            } else {
+                en.style.display = 'none';
+                ru.style.display = 'block';
+                btn.textContent = 'EN';
+            }
+        }
+    </script>
+
 </body>
 
 </html>

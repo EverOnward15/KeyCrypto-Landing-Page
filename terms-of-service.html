@@ -1,181 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KeyCrypto Wallet - Terms of Service</title>
-<link rel="icon" type="image/png" href="./favicon.png">
-<style>
-:root {
-    --background: #140d0d;
-    --foreground: #ec7210;
-    --accent: #ff8f40;
-    --text-main: #ffffff;
-    --text-muted: #d6d6d6;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyCrypto Wallet - Terms of Service</title>
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <style>
+        :root {
+            --background: #140d0d;
+            --foreground: #ec7210;
+            --accent: #ff8f40;
+            --text-main: #ffffff;
+            --text-muted: #d6d6d6;
+            --highlight: #ec7210;
+            --primary: #ec7210;
+            /* --secondary: #d9650e; */
+            --accent: #ff8f40;
+            --text-main: #ffffff;
+            --text-light: #d6d6d6;
+            --text-muted: #aaaaaa;
+            --glass: rgba(20, 13, 13, 0.8);
+        }
 
-body {
-    background: var(--background);
-    color: var(--text-main);
-    font-family: 'Segoe UI', sans-serif;
-    padding: 40px 20px;
-    line-height: 1.6;
-    max-width: 900px;
-    margin: 0 auto;
-}
+        body {
+            background: var(--background);
+            color: var(--text-main);
+            font-family: 'Segoe UI', sans-serif;
+            padding: 40px 20px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-h1 {
-    color: var(--foreground);
-    margin-bottom: 20px;
-    text-align: center;
-}
+        h1 {
+            color: var(--foreground);
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-h2 {
-    color: var(--accent);
-    margin-top: 30px;
-}
+        h2 {
+            color: var(--accent);
+            margin-top: 30px;
+        }
 
-a {
-    color: var(--accent);
-    text-decoration: none;
-}
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
 
-a:hover {
-    text-decoration: underline;
-}
+        a:hover {
+            text-decoration: underline;
+        }
 
-ul {
-    margin-left: 20px;
-}
+        ul {
+            margin-left: 20px;
+        }
 
-.lang-toggle {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .lang-toggle {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.lang-toggle button {
-    background: none;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin: 0 6px;
-    cursor: pointer;
-    font-size: 0.95rem;
-}
+        .lang-toggle button {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 0 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
 
-.lang-toggle button.active {
-    background: var(--accent);
-    color: var(--background);
-}
+        .lang-toggle button.active {
+            background: var(--accent);
+            color: var(--background);
+        }
 
-.footer {
-    text-align: center;
-    margin-top: 60px;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    border-top: 1px solid #ec7210;
-    padding-top: 20px;
-}
-</style>
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid #ec7210;
+            padding-top: 20px;
+        }
+
+
+        /* Simple Header */
+        .site-header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--secondary);
+            padding: 12px 20px;
+            /* position: sticky; */
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left .brand {
+            color: var(--primary) !important;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .header-nav a {
+            color: var(--text-main);
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
-<div class="lang-toggle">
-    <button id="en-btn" class="active">English</button>
-    <button id="ru-btn">Русский</button>
-</div>
 
-<h1 id="title"></h1>
-<p id="effective-date"></p>
+    <!-- Simple Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-left">
+                <a href="index.html" class="brand">KeyCrypto</a>
+            </div>
+            <nav class="header-nav">
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+                <!-- <button id="lang-toggle" class="lang-btn">RU</button> -->
+            </nav>
+        </div>
+    </header>
 
-<div id="terms-content"></div>
+    <div class="lang-toggle">
+        <button id="en-btn" class="active">English</button>
+        <button id="ru-btn">Русский</button>
+    </div>
 
-<footer class="footer" id="footer-text"></footer>
+    <h1 id="title"></h1>
+    <p id="effective-date"></p>
 
-<script>
-const translations = {
-  en: {
-    title: "Terms of Service",
-    date: "Effective date: September 29, 2025",
-    sections: [
-      ["1. Acceptance of Terms", "By accessing or using KeyCrypto Wallet (“Service”), you agree to be bound by these Terms of Service (“Terms”). If you do not agree, you may not use the Service."],
-      ["2. Nature of the Service", "KeyCrypto Wallet provides a web3-enabled, self-custodial wallet service that integrates with Telegram for instant access. We do not hold, store, or manage users’ cryptocurrency assets. Users are responsible for securing their own private keys and backups. KeyCrypto Wallet is a service provider and does not act as a bank or custodial entity."],
-      ["3. User Responsibilities", `
+    <div id="terms-content"></div>
+
+    <footer class="footer" id="footer-text"></footer>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Terms of Service",
+                date: "Effective date: September 29, 2025",
+                sections: [
+                    ["1. Acceptance of Terms", "By accessing or using KeyCrypto Wallet (“Service”), you agree to be bound by these Terms of Service (“Terms”). If you do not agree, you may not use the Service."],
+                    ["2. Nature of the Service", "KeyCrypto Wallet provides a web3-enabled, self-custodial wallet service that integrates with Telegram for instant access. We do not hold, store, or manage users’ cryptocurrency assets. Users are responsible for securing their own private keys and backups. KeyCrypto Wallet is a service provider and does not act as a bank or custodial entity."],
+                    ["3. User Responsibilities", `
         <ul>
           <li>You are solely responsible for the security of your wallet and any private keys.</li>
           <li>You agree to comply with all applicable laws, regulations, and sanctions in your jurisdiction.</li>
           <li>You acknowledge that cryptocurrency transactions are irreversible.</li>
         </ul>
       `],
-      ["4. Limitation of Liability", "KeyCrypto Wallet, its affiliates, employees, and partners shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the Service, including loss of cryptocurrency, data, or access. By using the Service, you assume full responsibility for any associated risks."],
-      ["5. No Investment Advice", "The Service does not provide financial, investment, or tax advice. All cryptocurrency use is at your own risk."],
-      ["6. Termination", "We may suspend or terminate access to the Service at any time for any reason, without prior notice."],
-      ["7. Changes to Terms", "We may update these Terms from time to time. Continued use of the Service constitutes acceptance of any changes."],
-      ["8. Contact", `If you have questions about these Terms, please contact us at <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>.`]
-    ],
-    footer: `© 2025 KeyCrypto. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>`
-  },
-  ru: {
-    title: "Условия обслуживания",
-    date: "Дата вступления в силу: 29 сентября 2025 г.",
-    sections: [
-      ["1. Принятие условий", "Используя KeyCrypto Wallet («Сервис»), вы соглашаетесь с настоящими Условиями обслуживания («Условия»). Если вы не согласны, вы не можете использовать Сервис."],
-      ["2. Характер услуги", "KeyCrypto Wallet предоставляет web3-кошелёк с само-хранением, интегрированный с Telegram. Мы не храним и не управляем средствами пользователей. Пользователь несёт ответственность за сохранность своих приватных ключей и резервных копий. KeyCrypto Wallet не является банком или кастодиальным сервисом."],
-      ["3. Ответственность пользователя", `
+                    ["4. Limitation of Liability", "KeyCrypto Wallet, its affiliates, employees, and partners shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the Service, including loss of cryptocurrency, data, or access. By using the Service, you assume full responsibility for any associated risks."],
+                    ["5. No Investment Advice", "The Service does not provide financial, investment, or tax advice. All cryptocurrency use is at your own risk."],
+                    ["6. Termination", "We may suspend or terminate access to the Service at any time for any reason, without prior notice."],
+                    ["7. Changes to Terms", "We may update these Terms from time to time. Continued use of the Service constitutes acceptance of any changes."],
+                    ["8. Contact", `If you have questions about these Terms, please contact us at <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>.`]
+                ],
+                footer: `© 2025 KeyCrypto. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>`
+            },
+            ru: {
+                title: "Условия обслуживания",
+                date: "Дата вступления в силу: 29 сентября 2025 г.",
+                sections: [
+                    ["1. Принятие условий", "Используя KeyCrypto Wallet («Сервис»), вы соглашаетесь с настоящими Условиями обслуживания («Условия»). Если вы не согласны, вы не можете использовать Сервис."],
+                    ["2. Характер услуги", "KeyCrypto Wallet предоставляет web3-кошелёк с само-хранением, интегрированный с Telegram. Мы не храним и не управляем средствами пользователей. Пользователь несёт ответственность за сохранность своих приватных ключей и резервных копий. KeyCrypto Wallet не является банком или кастодиальным сервисом."],
+                    ["3. Ответственность пользователя", `
         <ul>
           <li>Вы полностью несёте ответственность за безопасность вашего кошелька и приватных ключей.</li>
           <li>Вы обязуетесь соблюдать все применимые законы, правила и санкции своей юрисдикции.</li>
           <li>Вы признаёте, что криптовалютные транзакции необратимы.</li>
         </ul>
       `],
-      ["4. Ограничение ответственности", "KeyCrypto Wallet, его сотрудники и партнёры не несут ответственности за любые прямые, косвенные или сопутствующие убытки, включая потерю криптовалюты, данных или доступа. Используя Сервис, вы берёте все риски на себя."],
-      ["5. Отсутствие инвестиционных рекомендаций", "Сервис не предоставляет финансовые, инвестиционные или налоговые консультации. Использование криптовалют осуществляется на ваш страх и риск."],
-      ["6. Прекращение обслуживания", "Мы можем приостановить или прекратить доступ к Сервису в любое время без предварительного уведомления."],
-      ["7. Изменения условий", "Мы можем время от времени обновлять эти Условия. Продолжение использования Сервиса означает согласие с изменениями."],
-      ["8. Контакты", `Если у вас есть вопросы по данным Условиям, свяжитесь с нами по адресу <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>.`]
-    ],
-    footer: `© 2025 KeyCrypto. Все права защищены. | <a href="index.html">Главная</a> | <a href="faq.html">FAQ</a> | <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>`
-  }
-};
+                    ["4. Ограничение ответственности", "KeyCrypto Wallet, его сотрудники и партнёры не несут ответственности за любые прямые, косвенные или сопутствующие убытки, включая потерю криптовалюты, данных или доступа. Используя Сервис, вы берёте все риски на себя."],
+                    ["5. Отсутствие инвестиционных рекомендаций", "Сервис не предоставляет финансовые, инвестиционные или налоговые консультации. Использование криптовалют осуществляется на ваш страх и риск."],
+                    ["6. Прекращение обслуживания", "Мы можем приостановить или прекратить доступ к Сервису в любое время без предварительного уведомления."],
+                    ["7. Изменения условий", "Мы можем время от времени обновлять эти Условия. Продолжение использования Сервиса означает согласие с изменениями."],
+                    ["8. Контакты", `Если у вас есть вопросы по данным Условиям, свяжитесь с нами по адресу <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>.`]
+                ],
+                footer: `© 2025 KeyCrypto. Все права защищены. | <a href="index.html">Главная</a> | <a href="faq.html">FAQ</a> | <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>`
+            }
+        };
 
-let language = localStorage.getItem("lang") || "en";
+        let language = localStorage.getItem("lang") || "en";
 
-const titleEl = document.getElementById("title");
-const dateEl = document.getElementById("effective-date");
-const contentEl = document.getElementById("terms-content");
-const footerEl = document.getElementById("footer-text");
-const enBtn = document.getElementById("en-btn");
-const ruBtn = document.getElementById("ru-btn");
+        const titleEl = document.getElementById("title");
+        const dateEl = document.getElementById("effective-date");
+        const contentEl = document.getElementById("terms-content");
+        const footerEl = document.getElementById("footer-text");
+        const enBtn = document.getElementById("en-btn");
+        const ruBtn = document.getElementById("ru-btn");
 
-function renderTerms() {
-  const t = translations[language];
-  titleEl.textContent = t.title;
-  dateEl.textContent = t.date;
+        function renderTerms() {
+            const t = translations[language];
+            titleEl.textContent = t.title;
+            dateEl.textContent = t.date;
 
-  contentEl.innerHTML = t.sections.map(([heading, body]) => `
+            contentEl.innerHTML = t.sections.map(([heading, body]) => `
     <h2>${heading}</h2>
     <p>${body}</p>
   `).join("");
 
-  footerEl.innerHTML = t.footer;
+            footerEl.innerHTML = t.footer;
 
-  enBtn.classList.toggle("active", language === "en");
-  ruBtn.classList.toggle("active", language === "ru");
-}
+            enBtn.classList.toggle("active", language === "en");
+            ruBtn.classList.toggle("active", language === "ru");
+        }
 
-enBtn.addEventListener("click", () => {
-  language = "en";
-  localStorage.setItem("language", "en");
-  renderTerms();
-});
+        enBtn.addEventListener("click", () => {
+            language = "en";
+            localStorage.setItem("language", "en");
+            renderTerms();
+        });
 
-ruBtn.addEventListener("click", () => {
-  language = "ru";
-  localStorage.setItem("language", "ru");
-  renderTerms();
-});
+        ruBtn.addEventListener("click", () => {
+            language = "ru";
+            localStorage.setItem("language", "ru");
+            renderTerms();
+        });
 
-renderTerms();
-</script>
+        renderTerms();
+    </script>
 </body>
+
 </html>

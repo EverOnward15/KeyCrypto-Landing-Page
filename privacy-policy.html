@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Privacy Policy — KeyCrypto Wallet</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta name="description"
+        content="Privacy policy for KeyCrypto Wallet — how we collect, use and protect personal data. EN / RU translations included." />
+    <style>
+       :root {
+    --background: #140d0d;
+    --foreground: #ec7210;
+    --card-bg: #1a1a1a;
+    --primary: #ec7210;
+    --accent: #ff8f40;
+    --text-main: #ffffff;
+    --text-light: #d6d6d6;
+    --text-muted: #aaaaaa;
+    --glass: rgba(20, 13, 13, 0.82);
+    --radius: 12px;
+    --max-width: 820px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-main);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 24px 18px;
+}
+
+/* Page container */
+.page {
+    max-width: var(--max-width);
+    margin: 20px auto;
+    padding: 24px;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.85));
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(236, 114, 16, 0.06);
+}
+
+/* Header */
+header.site-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.logo img {
+    width: 64px;
+    height: auto;
+    border-radius: 10px;
+    filter: drop-shadow(0 6px 18px rgba(236, 114, 16, 0.08));
+}
+
+.title-wrap {
+    flex: 1;
+    min-width: 240px;
+}
+
+h1 {
+    font-size: 1.7rem;
+    color: var(--foreground);
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* Language buttons */
+.lang-toggle {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.lang-toggle button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--text-light);
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.lang-toggle button.active {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    color: #0b0b0b;
+    border-color: rgba(236, 114, 16, 0.14);
+    box-shadow: 0 8px 20px rgba(236, 114, 16, 0.12);
+}
+
+/* Content wrapper */
+.content {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Main body */
+main {
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.6), rgba(15, 15, 15, 0.6));
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Typography */
+h2 {
+    color: var(--accent);
+    font-size: 1.18rem;
+    margin-bottom: 10px;
+}
+
+p, li {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 18px;
+    margin-bottom: 12px;
+}
+
+strong {
+    color: var(--text-main);
+}
+
+.muted, .small-note {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-top: 6px;
+}
+
+/* Groups */
+.section {
+    margin-bottom: 28px;
+}
+
+.policy-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: var(--text-light);
+}
+
+.toc {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    border-left: 2px solid rgba(255, 255, 255, 0.04);
+    padding-left: 12px;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer.site-footer {
+    margin-top: 24px;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    text-align: center;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Language handling */
+.lang-block {
+    display: none;
+}
+
+.lang-block.active {
+    display: block;
+}
+
+/* Small screens adjustments */
+@media (max-width: 540px) {
+    h1 { font-size: 1.45rem; }
+    .subtitle { font-size: 0.9rem; }
+    main { padding: 18px; }
+    .page { padding: 18px; }
+}
+
+
+        /* Simple Header */
+        .site-header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--secondary);
+            padding: 12px 20px;
+            /* position: sticky; */
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left .brand {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .header-nav a {
+            color: var(--text-main);
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .lang-btn {
+            background: var(--secondary);
+            color: var(--text-main);
+            border: none;
+            border-radius: 6px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            margin-left: 15px;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent);
+        }
+
+
+        /* Mobile-friendly adjustments */
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .header-nav a {
+                margin: 0 8px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+     <header class="site-header">
+        <div class="header-inner">
+            <div class="header-left">
+                <a href="index.html" class="brand">KeyCrypto</a>
+            </div>
+            <nav class="header-nav">
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+                <!-- <button id="lang-toggle" class="lang-btn">RU</button> -->
+            </nav>
+        </div>
+    </header>
+    <div class="page" role="main" aria-labelledby="policy-title">
+        <header class="site-header" role="banner">
+            <div style="display:flex;align-items:center;gap:12px">
+                <div class="logo" aria-hidden="false">
+                    <img src="./logo.webp" alt="KeyCrypto logo">
+                </div>
+                <div class="title-wrap">
+                    <h1 id="policy-title">Privacy Policy</h1>
+                    <div class="subtitle">How KeyCrypto Wallet collects, uses, retains and protects information. EN / RU
+                        available below.</div>
+                </div>
+            </div>
+
+            <div class="lang-toggle" role="navigation" aria-label="Language selection">
+                <button id="btn-en" class="active" aria-pressed="true">English</button>
+                <button id="btn-ru" aria-pressed="false">Русский</button>
+            </div>
+        </header>
+
+        <div class="content">
+            <main>
+                <!-- English block -->
+                <article id="lang-en" class="lang-block active" lang="en">
+                    <div class="policy-meta">
+                        <div class="badge">Effective date: November 19, 2025</div>
+                        <div class="badge">Last updated: November 19, 2025</div>
+                        <div class="badge">Version: 1.0</div>
+                    </div>
+
+                    <section class="section" id="intro-en" aria-labelledby="intro-heading-en">
+                        <h2 id="intro-heading-en">Introduction</h2>
+                        <p>
+                            This Privacy Policy explains how KeyCrypto ("we", "our", "us") collects, uses, discloses,
+                            and protects
+                            information when you interact with KeyCrypto Wallet services available through Telegram, our
+                            websites,
+                            and related products (collectively, the "Services"). By using our Services you agree to the
+                            collection and
+                            use of information in accordance with this policy.
+                        </p>
+                        <div class="small-note">If you are located in the European Economic Area (EEA) or the United
+                            Kingdom, please
+                            also review the section "Your rights" for GDPR-related information.</div>
+                    </section>
+
+                    <section class="section" id="data-collected-en" aria-labelledby="data-col-heading-en">
+                        <h2 id="data-col-heading-en">Information we collect</h2>
+                        <p>We collect the following categories of information to operate the Services and to comply with
+                            legal obligations:</p>
+                        <ul>
+                            <li><strong>Account & authentication data:</strong> Telegram user identifier, profile name,
+                                and metadata required to authenticate you to the bot.</li>
+                            <li><strong>Wallet & transaction data:</strong> Public wallet addresses, transaction history
+                                (on-chain data), timestamps and amounts for transactions you initiate.</li>
+                            <li><strong>Payment data:</strong> When you use on-ramp/off-ramp services we collect payment
+                                information provided to our payment partners (e.g., card information, bank details), but
+                                sensitive payment data is handled directly by our payment processors and not stored on
+                                our servers unless required and explicitly disclosed.</li>
+                            <li><strong>Technical & device data:</strong> IP address, browser or client type, device
+                                identifiers, operating system, language settings, and crash logs to improve reliability
+                                and security.</li>
+                            <li><strong>Usage & support data:</strong> Commands you send to the bot, support messages,
+                                logs of errors and interactions needed for troubleshooting and customer service.</li>
+                            <li><strong>Optional profile data:</strong> Information you choose to provide such as an
+                                email address for notifications, KYC documents if you elect to use services that require
+                                identity verification.</li>
+                        </ul>
+                        <p class="muted">We do not collect seed phrases or unencrypted private keys. Private key
+                            material is generated and encrypted using Web3Auth flows; see the "Security" section for
+                            details.</p>
+                    </section>
+
+                    <section class="section" id="how-use-en" aria-labelledby="how-heading-en">
+                        <h2 id="how-heading-en">How we use your information</h2>
+                        <ul>
+                            <li><strong>Provide and operate the Services:</strong> Generate wallets, sign transactions,
+                                route payments to on-ramp partners, and manage your experience in the Telegram bot.</li>
+                            <li><strong>Security & fraud prevention:</strong> Detect and prevent malicious activity,
+                                secure access, and mitigate fraud and abuse.</li>
+                            <li><strong>Legal & compliance:</strong> Comply with applicable laws, respond to lawful
+                                requests by public authorities, and perform KYC/AML checks where required by local
+                                regulations.</li>
+                            <li><strong>Support & communication:</strong> Respond to inquiries, send important account
+                                or service messages, and provide customer support.</li>
+                            <li><strong>Research & analytics:</strong> Improve the product by analyzing usage patterns
+                                (aggregated/anonymized where possible).</li>
+                        </ul>
+                    </section>
+
+                    <section class="section" id="sharing-en" aria-labelledby="sharing-heading-en">
+                        <h2 id="sharing-heading-en">Sharing and disclosure</h2>
+                        <p>We may share your information in the following situations:</p>
+                        <ul>
+                            <li><strong>Service providers:</strong> With trusted third parties who provide services on
+                                our behalf (payment processors, analytics providers, cloud hosting, and security
+                                services).</li>
+                            <li><strong>On-chain transparency:</strong> Transaction data on public blockchains is
+                                visible to anyone by design; we do not — and cannot — make on-chain transactions
+                                private.</li>
+                            <li><strong>Legal requirements:</strong> When required by law, regulation, subpoena, or
+                                government request.</li>
+                            <li><strong>Business transfers:</strong> In the event of a merger, acquisition, or sale of
+                                assets, your information may be transferred to the new owner under appropriate
+                                protections.</li>
+                        </ul>
+                        <p class="muted">We will not sell your personal information for advertising purposes.</p>
+                    </section>
+
+                    <section class="section" id="security-en" aria-labelledby="security-heading-en">
+                        <h2 id="security-heading-en">Security</h2>
+                        <p>
+                            We design KeyCrypto with security best practices: private keys are generated and encrypted
+                            via Web3Auth
+                            flows; private key material is not transmitted in the clear. Transport-level encryption
+                            (HTTPS / TLS) is
+                            used for all network traffic. Access controls, monitoring, and routine security reviews
+                            reduce the risk
+                            of unauthorized access.
+                        </p>
+                        <p class="muted">Despite our efforts, no system can be entirely risk-free. You can help by
+                            keeping your Telegram
+                            account secure, enabling device-level protection, and opting into encrypted backups when
+                            offered.</p>
+                    </section>
+
+                    <section class="section" id="retention-en" aria-labelledby="retention-heading-en">
+                        <h2 id="retention-heading-en">Data retention</h2>
+                        <p>
+                            We retain personal data only as long as necessary to provide the Services, comply with legal
+                            obligations,
+                            resolve disputes, and enforce agreements. Retention periods vary by data category (for
+                            example, transaction
+                            records may be retained longer for compliance; support logs for a shorter period).
+                        </p>
+                    </section>
+
+                    <section class="section" id="cookies-en" aria-labelledby="cookies-heading-en">
+                        <h2 id="cookies-heading-en">Cookies and tracking</h2>
+                        <p>
+                            Our website and related services may use cookies and similar technologies to operate
+                            essential features,
+                            remember preferences, and analyze usage. You can control cookie preferences through your
+                            browser settings;
+                            note that disabling certain cookies may affect functionality.
+                        </p>
+                    </section>
+
+                    <section class="section" id="rights-en" aria-labelledby="rights-heading-en">
+                        <h2 id="rights-heading-en">Your rights</h2>
+                        <p>
+                            Depending on your jurisdiction, you may have rights including access, rectification,
+                            erasure, restriction
+                            of processing, data portability, and the right to object to certain processing. EEA / UK
+                            residents have
+                            GDPR protections and can exercise rights by contacting us (see "Contact" below).
+                        </p>
+                        <p class="small-note">To make a request we may need to verify your identity for security
+                            reasons. We will respond
+                            to verifiable requests in accordance with applicable law.</p>
+                    </section>
+
+                    <section class="section" id="children-en" aria-labelledby="children-heading-en">
+                        <h2 id="children-heading-en">Children</h2>
+                        <p>
+                            Our Services are not intended for children under 16. We do not knowingly collect personal
+                            information from
+                            children under 16. If you believe we have collected such data, contact us and we will take
+                            appropriate steps.
+                        </p>
+                    </section>
+
+                    <section class="section" id="international-en" aria-labelledby="international-heading-en">
+                        <h2 id="international-heading-en">International transfers</h2>
+                        <p>
+                            KeyCrypto is a global service. Personal data may be processed in jurisdictions other than
+                            your country of
+                            residence. We safeguard international transfers through standard contractual clauses or
+                            other legal mechanisms
+                            where required.
+                        </p>
+                    </section>
+
+                    <section class="section" id="updates-en" aria-labelledby="updates-heading-en">
+                        <h2 id="updates-heading-en">Changes to this policy</h2>
+                        <p>
+                            We may update this Privacy Policy to reflect operational, legal or regulatory changes. When
+                            we make material
+                            changes, we will provide notice through the Services or by email where applicable. The
+                            "Effective date"
+                            above indicates when this policy became effective.
+                        </p>
+                    </section>
+
+                    <section class="section" id="contact-en" aria-labelledby="contact-heading-en">
+                        <h2 id="contact-heading-en">Contact</h2>
+                        <p>
+                            If you have questions about this Privacy Policy, want to exercise your data rights, or need
+                            help with
+                            privacy-related requests, contact us:
+                        </p>
+                        <ul>
+                            <li><strong>Email:</strong> <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a></li>
+                            <li><strong>Telegram:</strong> <a href="https://t.me/keycrypto_guide" target="_blank"
+                                    rel="noopener">t.me/keycrypto_guide</a></li>
+                            <li><strong>Mailing address:</strong> Provided on request for verified compliance inquiries.
+                            </li>
+                        </ul>
+                        <p class="muted">We aim to respond to all legitimate requests promptly and in accordance with
+                            applicable law.</p>
+                    </section>
+                </article>
+
+                <!-- Russian block -->
+                <article id="lang-ru" class="lang-block" lang="ru">
+                    <div class="policy-meta">
+                        <div class="badge">Дата вступления в силу: 19 ноября 2025</div>
+                        <div class="badge">Обновлено: 19 ноября 2025</div>
+                        <div class="badge">Версия: 1.0</div>
+                    </div>
+
+                    <section class="section" id="intro-ru" aria-labelledby="intro-heading-ru">
+                        <h2 id="intro-heading-ru">Введение</h2>
+                        <p>
+                            Настоящая Политика конфиденциальности объясняет, как KeyCrypto («мы», «наш», «нас»)
+                            собирает, использует,
+                            раскрывает и защищает информацию при взаимодействии с сервисами KeyCrypto Wallet в Telegram,
+                            на наших сайтах
+                            и в сопутствующих продуктах (вместе — «Сервисы»). Пользуясь нашими Сервисами, вы
+                            соглашаетесь с методами
+                            обработки данных, описанными в этой политике.
+                        </p>
+                        <div class="small-note">Если вы находитесь в Европейской экономической зоне (EEA) или в
+                            Великобритании, обратите внимание
+                            на раздел «Ваши права» для информации о защите данных по GDPR.</div>
+                    </section>
+
+                    <section class="section" id="data-col-ru" aria-labelledby="data-col-heading-ru">
+                        <h2 id="data-col-heading-ru">Какие данные мы собираем</h2>
+                        <p>Мы собираем следующие категории данных для работы Сервисов и соблюдения правовых требований:
+                        </p>
+                        <ul>
+                            <li><strong>Данные для входа и аутентификации:</strong> идентификатор пользователя Telegram,
+                                имя профиля и метаданные, необходимые для аутентификации в боте.</li>
+                            <li><strong>Данные кошелька и транзакций:</strong> публичные адреса кошельков, история
+                                транзакций (данные в блокчейне), временные метки и суммы транзакций.</li>
+                            <li><strong>Платёжные данные:</strong> при использовании on-ramps/off-ramps мы обрабатываем
+                                платёжную информацию через наших партнёров; чувствительные платёжные данные обычно
+                                обрабатываются напрямую платёжными провайдерами.</li>
+                            <li><strong>Технические данные:</strong> IP-адрес, тип клиента, идентификаторы устройств,
+                                ОС, язык и логи ошибок для повышения стабильности и безопасности.</li>
+                            <li><strong>Данные использования и поддержки:</strong> команды, отправленные боту, сообщения
+                                в поддержку и журналы взаимодействий для устранения неполадок.</li>
+                            <li><strong>Опциональные профильные данные:</strong> адрес электронной почты для
+                                уведомлений, документы KYC при добровольной верификации.</li>
+                        </ul>
+                        <p class="muted">Мы не собираем seed-фразы или незашифрованные приватные ключи. Приватные ключи
+                            создаются и шифруются с помощью Web3Auth; см. раздел «Безопасность».</p>
+                    </section>
+
+                    <section class="section" id="how-use-ru" aria-labelledby="how-heading-ru">
+                        <h2 id="how-heading-ru">Как мы используем данные</h2>
+                        <ul>
+                            <li><strong>Предоставление Сервисов:</strong> создание кошельков, подпись транзакций,
+                                маршрутизация платежей и управление взаимодействием в боте.</li>
+                            <li><strong>Безопасность и предотвращение мошенничества:</strong> обнаружение и блокировка
+                                злоумышленников, защита доступа и предотвращение злоупотреблений.</li>
+                            <li><strong>Законодательное соответствие:</strong> выполнение требований законодательства,
+                                ответы на законные запросы властей и проведение KYC/AML при необходимости.</li>
+                            <li><strong>Поддержка и коммуникация:</strong> ответы на запросы, отправка служебных
+                                сообщений и помощь пользователям.</li>
+                            <li><strong>Аналитика:</strong> улучшение продукта через анализ использования
+                                (агрегированные и анонимизированные данные там, где это возможно).</li>
+                        </ul>
+                    </section>
+
+                    <section class="section" id="sharing-ru" aria-labelledby="sharing-heading-ru">
+                        <h2 id="sharing-heading-ru">Раскрытие и передача данных</h2>
+                        <p>Мы можем передавать вашу информацию в следующих случаях:</p>
+                        <ul>
+                            <li><strong>Поставщики услуг:</strong> доверенным третьим лицам (платёжные провайдеры,
+                                облачные хостинги, аналитика и безопасность).</li>
+                            <li><strong>Публичный блокчейн:</strong> данные транзакций в блокчейне публичны по своей
+                                природе; мы не можем сделать их приватными.</li>
+                            <li><strong>По закону:</strong> при наличии законных требований, повесток или запросов
+                                государственных органов.</li>
+                            <li><strong>Бизнес-транзакции:</strong> в случае слияния, приобретения или продажи активов
+                                данные могут быть переданы новому владельцу под защитой соответствующих условий.</li>
+                        </ul>
+                        <p class="muted">Мы не продаём ваши персональные данные в рекламных целях.</p>
+                    </section>
+
+                    <section class="section" id="security-ru" aria-labelledby="security-heading-ru">
+                        <h2 id="security-heading-ru">Безопасность</h2>
+                        <p>
+                            KeyCrypto использует современные подходы к безопасности: приватные ключи создаются и
+                            шифруются через Web3Auth;
+                            приватные ключи не пересылаются и не хранятся в незашифрованном виде. Все сетевые соединения
+                            защищены TLS/HTTPS.
+                            Также используются контроль доступа, мониторинг и регулярные проверки безопасности.
+                        </p>
+                        <p class="muted">Несмотря на наши меры, абсолютной безопасности не существует. Мы рекомендуем
+                            защищать ваш Telegram-аккаунт и включать опции резервного шифрования, когда они доступны.
+                        </p>
+                    </section>
+
+                    <section class="section" id="retention-ru" aria-labelledby="retention-heading-ru">
+                        <h2 id="retention-heading-ru">Хранение данных</h2>
+                        <p>
+                            Мы храним персональные данные только столько, сколько это необходимо для работы Сервисов,
+                            выполнения правовых обязательств и урегулирования споров.
+                            Отдельные типы данных могут храниться дольше для соответствия требованиям (например, записи
+                            транзакций).
+                        </p>
+                    </section>
+
+                    <section class="section" id="cookies-ru" aria-labelledby="cookies-heading-ru">
+                        <h2 id="cookies-heading-ru">Cookies и трекинг</h2>
+                        <p>
+                            Сайт может использовать cookies и аналогичные технологии для работы функций, запоминания
+                            предпочтений и аналитики.
+                            Вы можете управлять cookies в настройках браузера; отключение может повлиять на
+                            функциональность.
+                        </p>
+                    </section>
+
+                    <section class="section" id="rights-ru" aria-labelledby="rights-heading-ru">
+                        <h2 id="rights-heading-ru">Ваши права</h2>
+                        <p>
+                            В зависимости от юрисдикции у вас могут быть права на доступ, исправление, удаление,
+                            ограничение обработки, переносимость данных и возражение против обработки.
+                            Жители EEA/UK защищены GDPR и могут воспользоваться соответствующими правами, обратившись в
+                            нашу поддержку.
+                        </p>
+                        <p class="small-note">Для выполнения запроса мы можем попросить подтвердить вашу личность. Мы
+                            ответим в сроки, установленные законом.</p>
+                    </section>
+
+                    <section class="section" id="children-ru" aria-labelledby="children-heading-ru">
+                        <h2 id="children-heading-ru">Дети</h2>
+                        <p>
+                            Наши Сервисы не предназначены для детей младше 16 лет. Если вы считаете, что мы по ошибке
+                            собрали данные ребёнка младше 16 лет, свяжитесь с нами, и мы примем меры.
+                        </p>
+                    </section>
+
+                    <section class="section" id="international-ru" aria-labelledby="international-heading-ru">
+                        <h2 id="international-heading-ru">Международные передачи</h2>
+                        <p>
+                            KeyCrypto — глобальный сервис, обработка персональных данных может происходить в юрисдикциях
+                            за пределами вашей страны.
+                            Мы применяем механизмы защиты для таких передач, включая стандартные договорные положения,
+                            где это необходимо.
+                        </p>
+                    </section>
+
+                    <section class="section" id="updates-ru" aria-labelledby="updates-heading-ru">
+                        <h2 id="updates-heading-ru">Изменения в политике</h2>
+                        <p>
+                            Мы можем вносить изменения в эту Политику конфиденциальности. При существенных изменениях мы
+                            уведомим пользователей через сервисы или по электронной почте.
+                            Дата вступления в силу вверху страницы показывает актуальную версию.
+                        </p>
+                    </section>
+
+                    <section class="section" id="contact-ru" aria-labelledby="contact-heading-ru">
+                        <h2 id="contact-heading-ru">Контакты</h2>
+                        <p>
+                            Вопросы по политике конфиденциальности, запросы о правах субъекта данных или другие
+                            обращения:
+                        </p>
+                        <ul>
+                            <li><strong>Email:</strong> <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a></li>
+                            <li><strong>Telegram:</strong> <a href="https://t.me/keycrypto_guide" target="_blank"
+                                    rel="noopener">t.me/keycrypto_guide</a></li>
+                        </ul>
+                        <p class="muted">Мы стремимся отвечать на разумные запросы в установленные законом сроки.</p>
+                    </section>
+                </article>
+            </main>
+
+            <!-- <aside aria-labelledby="aside-heading">
+                <h2 id="aside-heading">At a glance / Кратко</h2>
+
+                <div style="margin-top:8px">
+                    <div class="badge">Telegram-first</div>
+                    <div class="badge" style="margin-left:8px">Web3Auth key encryption</div>
+                </div>
+
+                <div class="section" style="margin-top:12px">
+                    <h2>What we collect</h2>
+                    <ul>
+                        <li>Telegram ID and bot interactions</li>
+                        <li>Public wallet addresses & on-chain transactions</li>
+                        <li>Payment partner data (handled by partners)</li>
+                        <li>Technical logs and support messages</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Your choices</h2>
+                    <ul>
+                        <li>Control cookies via browser</li>
+                        <li>Request access, correction, deletion</li>
+                        <li>Opt into encrypted backups (recommended)</li>
+                    </ul>
+                    <a class="cta" href="mailto:team@keycrypto.pro?subject=Privacy%20Request">Contact Privacy Team</a>
+                </div>
+
+                <div class="section">
+                    <h2>Quick links</h2>
+                    <div class="toc" aria-label="quick links">
+                        <a href="#data-col-heading-en">Data we collect</a>
+                        <a href="#how-heading-en">How we use data</a>
+                        <a href="#security-heading-en">Security</a>
+                        <a href="#rights-heading-en">Your rights</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="privacy-policy.html">Full policy (EN)</a>
+                    </div>
+                </div>
+
+                <div class="section" style="margin-top:10px">
+                    <h2>Legal</h2>
+                    <p class="muted">We operate subject to applicable laws. For regulatory or law-enforcement requests
+                        we follow legal process.</p>
+                    <div class="legal-links">
+                        <a href="terms-of-service.html">Terms</a>
+                        <a href="privacy-policy.html">Privacy</a>
+                        <a href="mailto:team@keycrypto.pro">Contact</a>
+                    </div>
+                </div>
+
+            </aside> -->
+        </div>
+
+        <footer class="site-footer">
+            <div>© 2025 KeyCrypto. All rights reserved.</div>
+            <div class="muted" style="margin-top:6px">Effective date: November 19, 2025 — EN / RU translations provided
+                for convenience.</div>
+        </footer>
+    </div>
+
+    <script>
+        // Language toggle logic
+        (function () {
+            const btnEn = document.getElementById('btn-en');
+            const btnRu = document.getElementById('btn-ru');
+            const enBlock = document.getElementById('lang-en');
+            const ruBlock = document.getElementById('lang-ru');
+
+            function setLang(lang) {
+                if (lang === 'en') {
+                    enBlock.classList.add('active');
+                    ruBlock.classList.remove('active');
+                    btnEn.classList.add('active');
+                    btnRu.classList.remove('active');
+                    btnEn.setAttribute('aria-pressed', 'true');
+                    btnRu.setAttribute('aria-pressed', 'false');
+                    // update fragment links to English anchors if present in URL
+                } else {
+                    ruBlock.classList.add('active');
+                    enBlock.classList.remove('active');
+                    btnRu.classList.add('active');
+                    btnEn.classList.remove('active');
+                    btnRu.setAttribute('aria-pressed', 'true');
+                    btnEn.setAttribute('aria-pressed', 'false');
+                }
+            }
+
+            btnEn.addEventListener('click', () => setLang('en'));
+            btnRu.addEventListener('click', () => setLang('ru'));
+
+            // Preserve user choice in session storage
+            const stored = sessionStorage.getItem('keycrypto_lang');
+              let language = localStorage.getItem("lang") || "en";
+            if (language) setLang(language);
+            // Save on change
+            [btnEn, btnRu].forEach(btn => btn.addEventListener('click', () => {
+                const lang = btn.id === 'btn-en' ? 'en' : 'ru';
+                sessionStorage.setItem('lang', lang);
+            }));
+
+            // Accessibility: allow switching via keyboard focus + Enter
+            [btnEn, btnRu].forEach(btn => {
+                btn.addEventListener('keydown', (ev) => {
+                    if (ev.key === 'Enter' || ev.key === ' ') {
+                        ev.preventDefault();
+                        btn.click();
+                    }
+                });
+            });
+        })();
+    </script>
+    <script>
+const i18n = {
+    en: {
+        brand: "KeyCrypto",
+        nav_about: "About",
+        nav_faq: "FAQ",
+        title: "Privacy Policy",
+        subtitle: "How KeyCrypto Wallet collects, uses, retains and protects information. EN / RU available below."
+    },
+    ru: {
+        brand: "KeyCrypto",
+        nav_about: "О нас",
+        nav_faq: "FAQ",
+        title: "Политика конфиденциальности",
+        subtitle: "Как KeyCrypto Wallet собирает, использует, хранит и защищает информацию. Доступно EN / RU."
+    }
+};
+
+// DOM refs
+const brandEl = document.querySelector(".brand");
+const navAboutEl = document.querySelector('.header-nav a[href="about.html"]');
+const navFaqEl = document.querySelector('.header-nav a[href="faq.html"]');
+const titleEl = document.querySelector("#policy-title");
+const subtitleEl = document.querySelector(".subtitle");
+
+// Buttons
+const btnEN = document.getElementById("btn-en");
+const btnRU = document.getElementById("btn-ru");
+
+function switchLang(lang) {
+    // toggle main blocks
+    document.querySelectorAll(".lang-block").forEach(b => b.classList.remove("active"));
+    document.getElementById("lang-" + lang).classList.add("active");
+
+    // toggle button states
+    btnEN.classList.toggle("active", lang === "en");
+    btnRU.classList.toggle("active", lang === "ru");
+
+    // header translations
+    brandEl.textContent = i18n[lang].brand;
+    navAboutEl.textContent = i18n[lang].nav_about;
+    navFaqEl.textContent = i18n[lang].nav_faq;
+    titleEl.textContent = i18n[lang].title;
+    subtitleEl.textContent = i18n[lang].subtitle;
+}
+
+// Events
+btnEN.onclick = () => switchLang("en");
+btnRU.onclick = () => switchLang("ru");
+</script>
+
+</body>
+
+</html>

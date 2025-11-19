@@ -901,7 +901,13 @@
             signupButton.textContent = t.submit;
 
             // Footer (keep links)
-            footer.innerHTML = t.footer + " | <a href='terms-of-service.html'>" + (lang === "en" ? "Terms of Service" : "Условия использования") + "</a> | <a href='mailto:team@keycrypto.pro'>team@keycrypto.pro</a>";
+            footer.innerHTML =
+                t.footer +
+                " | <a href='terms-of-service.html'>" +
+                (lang === "en" ? "Terms of Service" : "Условия использования") +
+                "</a> | <a href='privacy-policy.html'>" +
+                (lang === "en" ? "Privacy Policy" : "Политика конфиденциальности") +
+                "</a> | <a href='mailto:team@keycrypto.pro'>team@keycrypto.pro</a>";
 
             // Save language
             localStorage.setItem("lang", lang);

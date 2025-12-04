@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyCrypto Wallet – AML / CTF Policy</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+
+    <style>
+        :root {
+            --background: #140d0d;
+            --foreground: #ec7210;
+            --bg: #1c1212;
+            --card-bg: #1a1a1a;
+            --highlight: #ec7210;
+            --primary: #ec7210;
+            --secondary: #d9650e;
+            --accent: #ff8f40;
+            --text-main: #ffffff;
+            --text-light: #d6d6d6;
+            --text-muted: #aaaaaa;
+            --glass: rgba(20, 13, 13, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: var(--glass);
+            padding: 40px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            width: 90%;
+            margin: 60px auto;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.4rem;
+            color: var(--foreground);
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin: 20px 0 10px;
+        }
+
+        p, li {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-size: 0.98rem;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        /* Tabs */
+        .lang-toggle {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 0 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .lang-toggle button.active {
+            background: var(--accent);
+            color: var(--background);
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--secondary);
+            padding: 12px 20px;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            color: var(--primary) !important;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .header-nav a {
+            color: var(--text-main);
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .footer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--secondary);
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width:480px) {
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">KeyCrypto</a>
+            <nav class="header-nav">
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="lang-toggle">
+            <button id="en-btn" class="active">English</button>
+            <button id="ru-btn">Русский</button>
+        </div>
+
+        <h1 id="title"></h1>
+
+        <div id="policy"></div>
+
+    </div>
+
+    <footer class="footer">
+        <span id="footer-text"></span>
+    </footer>
+
+    <script>
+        /* TRANSLATIONS */
+        const translations = {
+            en: {
+                title: "AML / CTF Policy",
+                policy: `
+                <h2>1. Introduction</h2>
+                <p>
+                    This Anti-Money Laundering and Counter-Terrorist Financing (AML/CTF) Policy describes how 
+                    KeyCrypto Wallet (operated by UVenture (Pty) Ltd) identifies, prevents, and mitigates risks 
+                    related to money laundering, terrorist financing, fraud, and illegal financial activity.
+                </p>
+
+                <h2>2. Our Service Model</h2>
+                <p>
+                    KeyCrypto is a non-custodial cryptocurrency wallet accessible exclusively through Telegram.  
+                    All users must have a valid Telegram account, which requires a unique mobile phone number.  
+                    Wallets are generated using Web3Auth and remain under the full control of the user.  
+                </p>
+
+                <p>Key points:</p>
+                <ul>
+                    <li>No anonymous usage — Telegram accounts require a phone number.</li>
+                    <li>No email/password accounts are created by KeyCrypto.</li>
+                    <li>Users retain custody of their private keys.</li>
+                    <li>Fiat on-ramp and off-ramp flows require third-party KYC/verification.</li>
+                </ul>
+
+                <h2>3. AML / CTF Framework</h2>
+                <p>KeyCrypto maintains an AML/CTF framework consisting of:</p>
+                <ul>
+                    <li>Customer identification through Telegram (phone-number–based identity).</li>
+                    <li>KYC/identity verification delegated to regulated on-ramp/off-ramp partners.</li>
+                    <li>Monitoring of suspicious activity within the wallet interface.</li>
+                    <li>Screening of blockchain transactions for sanction risks.</li>
+                    <li>Internal reporting and escalation procedures.</li>
+                </ul>
+
+                <h2>4. Identity Verification (KYC)</h2>
+                <p>
+                    KeyCrypto itself does not perform KYC verification because it is a non-custodial wallet.  
+                    However, all fiat-related services (buy/sell, bank withdrawals) require identity checks 
+                    performed by our licensed partners such as WhiteBird and other regulated payment institutions.  
+                </p>
+                <p>
+                    KeyCrypto only enables crypto-to-crypto and wallet operations for users who access 
+                    via Telegram and agree to the Terms of Service.
+                </p>
+
+                <h2>5. Monitoring & Risk Assessment</h2>
+                <p>We conduct ongoing risk assessment by:</p>
+                <ul>
+                    <li>Monitoring unusual patterns (e.g., repeated failed transactions, rapid fund movements).</li>
+                    <li>Using blockchain monitoring partners and public block explorers.</li>
+                    <li>Pausing suspicious actions and requesting additional verification when required by partners.</li>
+                </ul>
+
+                <h2>6. Sanctions & Prohibited Use</h2>
+                <p>KeyCrypto prohibits the use of our services for activities including:</p>
+                <ul>
+                    <li>Sanctions evasion</li>
+                    <li>Money laundering</li>
+                    <li>Terrorist financing</li>
+                    <li>Ransomware payments</li>
+                    <li>Darknet markets</li>
+                    <li>Fraud or scam operations</li>
+                </ul>
+
+                <p>
+                    We cooperate with regulated partners to monitor activity and comply with applicable 
+                    sanctions (OFAC, EU, UN, UK, and local regulations).
+                </p>
+
+                <h2>7. Record Keeping</h2>
+                <p>
+                    KeyCrypto maintains records relating to risk assessments, internal flags, and 
+                    interactions with regulated partners, while minimizing user data storage.
+                </p>
+
+                <h2>8. Reporting Obligations</h2>
+                <p>
+                    As a non-custodial wallet provider, KeyCrypto does not directly report SAR/STR filings 
+                    (Suspicious Activity Reports).  
+                    Instead, suspicious activity is escalated to our regulated partners who have reporting obligations.
+                </p>
+
+                <h2>9. Training</h2>
+                <p>
+                    Team members involved in payments, support, and operations receive AML/CTF training 
+                    appropriate to their roles.
+                </p>
+
+                <h2>10. Contact Information</h2>
+                <p>
+                    For compliance-related inquiries:  
+                    <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>
+                </p>
+
+                <p><strong>UVenture (Pty) Ltd</strong><br>
+                Registration: 2023/995881/07<br>
+                Address: 2 Webster Close, Constanta, Cape Town, Western Cape, 7806<br>
+                Tax number: 9505941204</p>
+                `,
+                footer: `© 2025 KeyCrypto. All rights reserved. | <a href="index.html">Home</a> | <a href="terms-of-service.html">Terms of Service</a> | <a href="privacy-policy.html">Privacy Policy</a>`
+            },
+
+            ru: {
+                title: "Политика AML / CTF",
+                policy: `
+                <h2>1. Введение</h2>
+                <p>
+                    Данная политика противодействия отмыванию денег и финансированию терроризма (AML/CTF) описывает, 
+                    как KeyCrypto Wallet (UVenture (Pty) Ltd) выявляет, предотвращает и снижает риски, связанные 
+                    с отмыванием денег, финансированием терроризма, мошенничеством и незаконной финансовой деятельностью.
+                </p>
+
+                <h2>2. Модель сервиса</h2>
+                <p>
+                    KeyCrypto — это некастодиальный криптокошелёк, доступный только через Telegram.  
+                    Все пользователи должны иметь действующий Telegram-аккаунт, для которого требуется 
+                    уникальный номер телефона.  
+                    Кошельки создаются с помощью Web3Auth и полностью контролируются пользователем.  
+                </p>
+
+                <p>Основные моменты:</p>
+                <ul>
+                    <li>Нет анонимных пользователей — Telegram требует номер телефона.</li>
+                    <li>KeyCrypto не создаёт аккаунтов с email/паролем.</li>
+                    <li>Пользователи полностью контролируют свои приватные ключи.</li>
+                    <li>KYC проводится партнёрами (он-рамп / офф-рамп).</li>
+                </ul>
+
+                <h2>3. AML / CTF структура</h2>
+                <p>KeyCrypto поддерживает AML/CTF систему, включающую:</p>
+                <ul>
+                    <li>Идентификацию пользователя через Telegram.</li>
+                    <li>KYC/проверку личности через лицензированных партнёров.</li>
+                    <li>Мониторинг подозрительных действий в интерфейсе кошелька.</li>
+                    <li>Проверку транзакций на блокчейне на соответствие санкционным спискам.</li>
+                    <li>Внутренние процедуры отчетности и эскалации.</li>
+                </ul>
+
+                <h2>4. KYC и проверка личности</h2>
+                <p>
+                    KeyCrypto не проводит собственный KYC, так как сервис является некастодиальным.  
+                    Однако все операции, связанные с банковскими картами и фиатными валютаими, 
+                    требуют обязательной проверки личности, которую выполняют наши лицензированные партнёры.
+                </p>
+
+                <h2>5. Мониторинг и оценка рисков</h2>
+                <ul>
+                    <li>Мониторинг необычных моделей поведения.</li>
+                    <li>Проверка транзакций через блокчейн-инструменты.</li>
+                    <li>Приостановка подозрительных действий до проверки.</li>
+                </ul>
+
+                <h2>6. Санкции и запрещённые виды деятельности</h2>
+                <p>Запрещено использование сервиса для:</p>
+                <ul>
+                    <li>Обхода санкций</li>
+                    <li>Отмывания денег</li>
+                    <li>Финансирования терроризма</li>
+                    <li>Мошенничества</li>
+                    <li>Даркнет-рынков</li>
+                    <li>Рансомвэр-операций</li>
+                </ul>
+
+                <p>
+                    Мы соблюдаем требования OFAC, ЕС, ООН, Великобритании и местных регуляторов, 
+                    работая совместно с лицензированными партнёрами.
+                </p>
+
+                <h2>7. Хранение данных</h2>
+                <p>
+                    KeyCrypto хранит только минимально необходимую информацию, связанную с рисками,
+                    и не сохраняет приватные данные пользователей, кроме необходимых для функционирования сервиса.
+                </p>
+
+                <h2>8. Обязанности по отчетности</h2>
+                <p>
+                    Подача официальных отчётов о подозрительной активности (SAR/STR) осуществляется 
+                    нашими лицензированными партнёрами.  
+                    KeyCrypto передаёт необходимую информацию партнёрам в случае выявления подозрительных действий.
+                </p>
+
+                <h2>9. Обучение персонала</h2>
+                <p>
+                    Команда KeyCrypto проходит обучение по AML/CTF в соответствии со стандартами отрасли.
+                </p>
+
+                <h2>10. Контакты</h2>
+                <p>
+                    Вопросы по соответствию:  
+                    <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a>
+                </p>
+
+                <p><strong>UVenture (Pty) Ltd</strong><br>
+                Регистрация: 2023/995881/07<br>
+                Адрес: 2 Webster Close, Constanta, Cape Town, Western Cape, 7806<br>
+                Налоговый номер: 9505941204</p>
+                `,
+                footer: `© 2025 KeyCrypto. Все права защищены. | <a href="index.html">Главная</a> | <a href="terms-of-service.html">Условия использования</a> | <a href="privacy-policy.html">Политика конфиденциальности</a>`
+            }
+        };
+
+        /* RENDERING */
+        let lang = localStorage.getItem("lang") || "en";
+        const titleEl = document.getElementById("title");
+        const policyEl = document.getElementById("policy");
+        const footerText = document.getElementById("footer-text");
+        const enBtn = document.getElementById("en-btn");
+        const ruBtn = document.getElementById("ru-btn");
+
+        function render() {
+            const t = translations[lang];
+            titleEl.textContent = t.title;
+            policyEl.innerHTML = t.policy;
+            footerText.innerHTML = t.footer;
+
+            enBtn.classList.toggle("active", lang === "en");
+            ruBtn.classList.toggle("active", lang === "ru");
+        }
+
+        enBtn.addEventListener("click", () => {
+            lang = "en"; localStorage.setItem("lang", "en"); render();
+        });
+
+        ruBtn.addEventListener("click", () => {
+            lang = "ru"; localStorage.setItem("lang", "ru"); render();
+        });
+
+        render();
+    </script>
+
+</body>
+</html>

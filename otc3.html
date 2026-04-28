@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTC Crypto Exchange - KeyCrypto</title>
+
+    <link rel="icon" type="image/png" href="./favicon.png">
+
+    <!-- COPY your entire <style> block EXACTLY from index.html -->
+    <!-- (unchanged for consistency) -->
+    <style>
+        :root {
+            --background: #140d0d;
+            --foreground: #ec7210;
+            --bg: #1c1212;
+            --card-bg: #1a1a1a;
+            --highlight: #ec7210;
+            --primary: #ec7210;
+            --secondary: #d9650e;
+            --accent: #ff8f40;
+            --text-main: #ffffff;
+            --text-light: #d6d6d6;
+            --text-muted: #aaaaaa;
+            --glass: rgba(20, 13, 13, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text-main);
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: block;
+            /* normal flow */
+            overflow-x: hidden;
+            /* allow vertical scrolling */
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        /* Floating crypto shapes */
+        .crypto-bg {
+            position: fixed;
+            /* fixed to viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+
+        .crypto-bg div {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 15s linear infinite;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-50px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Simple Header */
+        .site-header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--secondary);
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left .brand {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .header-nav a {
+            color: var(--text-main);
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .lang-btn {
+            background: var(--secondary);
+            color: var(--text-main);
+            border: none;
+            border-radius: 6px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            margin-left: 15px;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent);
+        }
+
+
+        /* Mobile-friendly adjustments */
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .header-nav a {
+                margin: 0 8px;
+            }
+        }
+
+
+        /* Container */
+        .container {
+            background: var(--glass);
+            padding: 40px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            /* allow more space */
+            width: 90%;
+            margin: 60px auto;
+            /* push it down from top */
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+
+        .logo {
+            margin-bottom: 25px;
+        }
+
+        .logo img {
+            max-width: 120px;
+            /* Adjust size as needed */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            /* Centered */
+            filter: drop-shadow(0 0 10px var(--accent));
+            border-radius: 10px;
+        }
+
+        .logo-heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* centers the pair horizontally in container */
+            gap: 15px;
+            /* spacing between logo and heading */
+            margin-bottom: 5px;
+        }
+
+        .logo-heading .logo img {
+            max-width: 80px;
+            /* adjust as needed */
+            height: auto;
+        }
+
+
+
+        h1 {
+            font-size: 3rem;
+            color: var(--foreground);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .telegram-cta {
+            margin: 25px 0;
+        }
+
+        .telegram-cta button {
+            padding: 14px 15px;
+            background: #0088cc;
+            /* Telegram blue */
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .telegram-cta button:hover {
+            background: #00aaff;
+        }
+
+
+        /* Features */
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 30px auto;
+            /* centers the block */
+            max-width: 500px;
+            /* optional to keep bullets near the center */
+            text-align: left;
+        }
+
+        .features li {
+            position: relative;
+            padding-left: 20px;
+            /* space for bullet */
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+            top: 0;
+        }
+
+
+        .certifications {
+            margin-top: 20px;
+            text-align: center;
+            z-index: 10001;
+        }
+
+        .certifications h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .cert-gallery img {
+            max-width: 100px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .cert-gallery img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .signup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            /* space between input and button */
+            flex-wrap: wrap;
+            /* allows stacking on small screens */
+            margin: 30px 0;
+            padding: 0px 10px;
+            /* optional spacing from above/below */
+        }
+
+        .signup input[type="email"] {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            width: 250px;
+            /* fixed width keeps form centered */
+            max-width: 80%;
+            background: var(--bg);
+            color: var(--text-main);
+        }
+
+        .signup button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--text-main);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .signup button:hover {
+            background: var(--accent);
+        }
+
+
+        .footer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--secondary);
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+            /* spacing from last section */
+            line-height: 150%;
+        }
+
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .telegram-cta {
+            display: flex !important;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px !important;
+        }
+
+        .telegram-cta a {
+            margin: 0 auto;
+        }
+
+        .features a {
+            margin: 0;
+        }
+
+        /* Language */
+        .language {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 480px) {
+            .logo-heading {
+                flex-direction: column;
+            }
+        }
+
+        .coming-soon {
+            color: var(--text-muted) !important;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 480px) {
+
+            body {
+                overflow: auto;
+                /* allow scrolling on small screens */
+
+                align-items: flex-start;
+                padding: 20px 0;
+                /* give some top/bottom space */
+            }
+
+            .coming-soon {
+                margin-bottom: 50px !important;
+            }
+
+            h1 {
+                white-space: nowrap;
+                font-size: 2rem;
+            }
+
+            .telegram-cta {
+                flex-direction: column;
+                gap: 20px !important;
+            }
+
+            .lightbox {
+                align-items: center;
+                justify-content: center;
+                /* center vertically */
+                padding-top: 0;
+                /* no top padding */
+                margin-top: 40px;
+            }
+
+            .lightbox img {
+                max-height: 80vh;
+                /* fit nicely on screen */
+                width: auto;
+            }
+
+            .feature-card {
+                                                text-align: center !important;
+
+            }
+
+            footer {
+                line-height: 150%;
+            }
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .section p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .roadmap ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .roadmap li {
+            margin: 10px 0;
+            color: var(--text-light);
+        }
+
+        .roadmap strong {
+            color: var(--text-light);
+        }
+
+        /* Make the language button responsive */
+        @media (max-width: 600px) {
+            .header-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .lang-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                margin-left: 0;
+                order: 99;
+                /* Push it below links if needed */
+            }
+
+            .header-nav a {
+                margin: 5px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Image styling */
+        .feature-card {
+            padding: 0;
+            /* remove inner padding so image can go full width */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 220px;
+            /* bigger */
+            object-fit: cover;
+            display: block;
+        }
+
+        /* text spacing */
+        .feature-card p {
+            padding: 20px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .feature-card {
+            position: relative;
+        }
+
+        .feature-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 220px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(20, 13, 13, 0.8));
+            pointer-events: none;
+        }
+
+        .feature-grid {
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="crypto-bg" id="crypto-bg"></div>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-left">
+                <a href="index.html" class="brand">KeyCrypto</a>
+            </div>
+            <nav class="header-nav">
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+                <button id="lang-toggle" class="lang-btn">RU</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN OTC CONTENT -->
+    <section class="section">
+        <h2 id="otc-title">OTC Crypto Exchange</h2>
+
+        <div class="feature-grid">
+
+            <!-- Block 1 -->
+            <div class="feature-card">
+                <img src="./otc1.webp" alt="OTC crypto deals">
+                <p id="otc-p1">
+                    Individual crypto exchange deals. From 20,000 USD.
+                </p>
+            </div>
+
+            <!-- Block 2 -->
+            <div class="feature-card">
+                <img src="./otc2.webp" alt="Crypto buy sell exchange methods">
+                <p id="otc-p2">
+                    Buy, sell or exchange any cryptocurrency via cash, bank transfer, or company account.
+                </p>
+            </div>
+
+            <!-- Block 3 -->
+            <div class="feature-card">
+                <img src="./otc3.webp" alt="Secure crypto infrastructure">
+                <p id="otc-p3">
+                    We combine banking and crypto infrastructure to execute large trades securely and privately
+                    worldwide.
+                </p>
+            </div>
+
+        </div>
+
+        <p id="otc-p4" style="margin-top:30px;">
+            Cash operations are available globally. Contact us for custom terms.
+        </p>
+    </section>
+
+    <footer class="footer">
+        © 2025 KeyCrypto. All rights reserved. |
+        <a href="terms-of-service.html">Terms of Service</a> |
+        <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a> |
+        <a href="/aml-ctf.html">AML/CTF Policy</a>
+    </footer>
+
+    <script>
+        /* floating bg (same as index) */
+        const cryptoBg = document.getElementById('crypto-bg');
+        for (let i = 0; i < 25; i++) {
+            const div = document.createElement('div');
+            div.style.left = Math.random() * 100 + 'vw';
+            div.style.width = div.style.height = 20 + Math.random() * 25 + 'px';
+            div.style.animationDuration = 10 + Math.random() * 15 + 's';
+            cryptoBg.appendChild(div);
+        }
+
+        /* TRANSLATIONS */
+        const translations = {
+            en: {
+                menuAbout: "About",
+                menuFAQ: "FAQ",
+
+                otcTitle: "OTC Crypto Exchange",
+                otc1: "Individual crypto exchange deals. From 20,000 USD.",
+                otc2: "Buy, sell, or exchange any cryptocurrency via cash, bank transfer, or company account.",
+                otc3: "We combine banking and crypto infrastructure to execute large trades confidentially, securely, and quickly.",
+                otc4: "Cash operations are available globally. Contact us for custom terms."
+            },
+            ru: {
+                menuAbout: "О нас",
+                menuFAQ: "FAQ",
+
+                otcTitle: "OTC сделки",
+                otc1: "Сделки по криптообмену в индивидуальном формате. От 20 000 USD.",
+                otc2: "С нами вы можете купить, продать или обменять любую криптовалюту за наличные или переводом.",
+                otc3: "Мы объединяем банковскую и криптоинфраструктуру для безопасных и конфиденциальных сделок.",
+                otc4: "Наличные операции доступны по всему миру. Напишите нам для индивидуальных условий."
+            }
+        };
+
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        const langToggle = document.getElementById("lang-toggle");
+        const menuLinks = document.querySelectorAll(".header-nav a");
+
+        function setLanguage(lang) {
+            const t = translations[lang];
+
+            document.getElementById("otc-title").textContent = t.otcTitle;
+            document.getElementById("otc-p1").textContent = t.otc1;
+            document.getElementById("otc-p2").textContent = t.otc2;
+            document.getElementById("otc-p3").textContent = t.otc3;
+            document.getElementById("otc-p4").textContent = t.otc4;
+
+            menuLinks[0].textContent = t.menuAbout;
+            menuLinks[1].textContent = t.menuFAQ;
+
+            langToggle.textContent = lang === "en" ? "RU" : "EN";
+
+            localStorage.setItem("lang", lang);
+        }
+
+        langToggle.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "ru" : "en";
+            setLanguage(currentLang);
+        });
+
+        setLanguage(currentLang);
+    </script>
+
+</body>
+
+</html>

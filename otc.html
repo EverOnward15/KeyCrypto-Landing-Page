@@ -260,6 +260,43 @@ footer {
     align-items: flex-start;
   }
 }
+
+/* MOBILE NAV FIX */
+@media (max-width: 700px) {
+
+  .nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 🔥 Telegram button fix */
+  #nav-wallet {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  /* Make toggle also clean */
+  #lang-toggle {
+    width: 100%;
+    text-align: center;
+  }
+}
   </style>
 </head>
 <body>

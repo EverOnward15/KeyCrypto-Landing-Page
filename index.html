@@ -538,16 +538,18 @@
     <div class="crypto-bg" id="crypto-bg"></div>
     <!-- Simple Header -->
     <header class="site-header">
+
         <div class="header-inner">
             <div class="header-left">
                 <a href="index.html" class="brand">KeyCrypto</a>
             </div>
             <nav class="header-nav">
-                <a href="https://keycrypto.pro/otc">KeyCrypto OTC</a>
-                <a href="about.html">About</a>
-                <a href="faq.html">FAQ</a>
+                <a id="nav-otc-link" href="https://keycrypto.pro/otc">KeyCrypto OTC</a>
+                <a id="nav-about" href="about.html">About</a>
+                <a id="nav-faq" href="faq.html">FAQ</a>
                 <button id="lang-toggle" class="lang-btn">RU</button>
             </nav>
+
         </div>
     </header>
 
@@ -870,8 +872,8 @@
             langToggle.textContent = lang === "en" ? "RU" : "EN";
 
             // Header links
-            menuLinks[0].textContent = t.menuAbout;
-            menuLinks[1].textContent = t.menuFAQ;
+            document.getElementById("nav-about").textContent = t.menuAbout;
+            document.getElementById("nav-faq").textContent = t.menuFAQ;
 
             // Main content
             comingEl.textContent = t.coming;

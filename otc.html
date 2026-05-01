@@ -405,12 +405,12 @@
       Не является финансовой консультацией. Условия сделки обсуждаются индивидуально.
     </p>
 
-    <p id="footer-copy" style="margin-top: 12px;">
-      ©️ 2026 KeyCrypto.pro |
-      <a id="footer-wallet" href="https://t.me/KeyCrypto_Bot" style="color:#2563eb; text-decoration: none;">
-        KeyCrypto Wallet
-      </a>
-    </p>
+<p id="footer-copy" style="margin-top: 12px;">
+  <span id="footer-copy-text">©️ 2026 KeyCrypto.pro |</span>
+  <a id="footer-wallet" href="https://t.me/KeyCrypto_Bot" style="color:#2563eb; text-decoration: none;">
+    KeyCrypto Wallet
+  </a>
+</p>
   </div>
 </footer>
   <script>
@@ -512,6 +512,9 @@
       document.getElementById("footer-text").innerHTML = t.footerText;
       document.getElementById("footer-copy").childNodes[0].textContent = t.footerCopy;
       document.getElementById("footer-wallet").textContent = t.footerWallet;
+
+      document.getElementById("footer-copy-text").textContent = t.footerCopy;
+document.getElementById("footer-wallet").textContent = t.footerWallet;
 
 
       document.getElementById("lang-toggle").textContent = lang === "ru" ? "EN" : "RU";

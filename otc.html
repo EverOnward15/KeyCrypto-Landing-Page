@@ -1,484 +1,527 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>KeyCrypto OTC | Внебиржевые сделки от 20 000 USD</title>
-  <meta name="description" content="OTC-сервис KeyCrypto: обмен крупных сумм криптовалюты на фиат и обратно. Работаем с юрлицами, наличные в РФ, Европе, Турции, ОАЭ, Азии. Безопасно, быстро, конфиденциально." />
+  <meta name="description"
+    content="OTC-сервис KeyCrypto: обмен крупных сумм криптовалюты на фиат и обратно. Работаем с юрлицами, наличные в РФ, Европе, Турции, ОАЭ, Азии. Безопасно, быстро, конфиденциально." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
-  --background: #140d0d;
-  --bg: #1c1212;
-  --card-bg: #1a1a1a;
-  --primary: #ec7210;
-  --secondary: #d9650e;
-  --accent: #ff8f40;
-  --text-main: #ffffff;
-  --text-light: #d6d6d6;
-  --text-muted: #aaaaaa;
-  --glass: rgba(20, 13, 13, 0.85);
-}
+      --background: #140d0d;
+      --bg: #1c1212;
+      --card-bg: #1a1a1a;
+      --primary: #ec7210;
+      --secondary: #d9650e;
+      --accent: #ff8f40;
+      --text-main: #ffffff;
+      --text-light: #d6d6d6;
+      --text-muted: #aaaaaa;
+      --glass: rgba(20, 13, 13, 0.85);
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--background);
-  color: var(--text-main);
-  line-height: 1.5;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-/* NAVBAR */
-.navbar {
-  background: var(--bg);
-  border-bottom: 1px solid var(--secondary);
-  padding: 16px 0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+    /* NAVBAR */
+    .navbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--secondary);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
 
-.logo {
-  font-weight: 800;
-  font-size: 1.6rem;
-  color: var(--primary);
-}
+    .logo {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--primary);
+    }
 
-.logo span {
-  color: var(--text-main);
-}
+    .logo span {
+      color: var(--text-main);
+    }
 
-.nav-links {
-  display: flex;
-  gap: 28px;
-  align-items: center;
-}
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
 
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-main);
-  transition: 0.2s;
-}
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      transition: 0.2s;
+    }
 
-.nav-links a:hover {
-  color: var(--accent);
-}
+    .nav-links a:hover {
+      color: var(--accent);
+    }
 
-/* BUTTONS */
-.btn-outline {
-  background: var(--secondary);
-  color: var(--text-main);
-  border: none;
-  padding: 8px 18px;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: 0.2s;
-}
+    /* BUTTONS */
+    .btn-outline {
+      background: var(--secondary);
+      color: var(--text-main);
+      border: none;
+      padding: 8px 18px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-.btn-outline:hover {
-  background: var(--accent);
-}
+    .btn-outline:hover {
+      background: var(--accent);
+    }
 
-/* HERO */
-.hero {
-  padding: 60px 0 40px 0;
-}
+    /* HERO */
+    .hero {
+      padding: 60px 0 40px 0;
+    }
 
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--primary);
-  max-width: 900px;
-}
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      max-width: 900px;
+    }
 
-.hero .sub {
-  font-size: 1.2rem;
-  color: var(--text-light);
-  margin-top: 20px;
-  max-width: 720px;
-}
+    .hero .sub {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-top: 20px;
+      max-width: 720px;
+    }
 
-.badge {
-  background: rgba(236,114,16,0.1);
-  color: var(--accent);
-  padding: 6px 14px;
-  border-radius: 40px;
-  display: inline-block;
-  font-weight: 600;
-  font-size: 0.85rem;
-  margin-bottom: 20px;
-}
+    .badge {
+      background: rgba(236, 114, 16, 0.1);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 40px;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
 
-/* CARDS */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin: 60px 0;
-}
+    /* CARDS */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
 
-.card {
-  background: var(--card-bg);
-  padding: 28px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  transition: 0.3s;
-}
+    .card {
+      background: var(--card-bg);
+      padding: 28px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      transition: 0.3s;
+    }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
 
-.card-icon {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-}
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
 
-.card h3 {
-  color: var(--primary);
-  margin-bottom: 10px;
-}
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
 
-.card p {
-  color: var(--text-light);
-}
+    .card p {
+      color: var(--text-light);
+    }
 
-/* OTC TEXT BLOCK */
-.otc-description {
-  background: var(--glass);
-  border-radius: 30px;
-  padding: 40px;
-  margin: 40px 0;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.05);
-}
+    /* OTC TEXT BLOCK */
+    .otc-description {
+      background: var(--glass);
+      border-radius: 30px;
+      padding: 40px;
+      margin: 40px 0;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-.otc-description p {
-  color: var(--text-light);
-  margin-bottom: 18px;
-}
+    .otc-description p {
+      color: var(--text-light);
+      margin-bottom: 18px;
+    }
 
-.otc-description strong {
-  color: var(--accent);
-}
+    .otc-description strong {
+      color: var(--accent);
+    }
 
-/* COUNTRY TAGS */
-.country-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+    /* COUNTRY TAGS */
+    .country-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.country-tag {
-  background: rgba(255,255,255,0.05);
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
+    .country-tag {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
 
-/* CONTACT BLOCK */
-.contact-block {
-  background: var(--glass);
-  border-radius: 30px;
-  padding: 40px;
-  text-align: center;
-  margin: 50px 0;
-  border: 1px solid rgba(255,255,255,0.05);
-}
+    /* CONTACT BLOCK */
+    .contact-block {
+      background: var(--glass);
+      border-radius: 30px;
+      padding: 40px;
+      text-align: center;
+      margin: 50px 0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-.contact-block h2 {
-  margin-bottom: 16px;
-}
+    .contact-block h2 {
+      margin-bottom: 16px;
+    }
 
-.tg-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--primary);
-  color: white;
-  padding: 14px 30px;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: 0.2s;
-}
+    .tg-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+    }
 
-.tg-button:hover {
-  background: var(--accent);
-  transform: scale(1.02);
-}
+    .tg-button:hover {
+      background: var(--accent);
+      transform: scale(1.02);
+    }
 
-.secondary-button {
-  background: transparent;
-  border: 1px solid var(--secondary);
-}
+    .secondary-button {
+      background: transparent;
+      border: 1px solid var(--secondary);
+    }
 
-.secondary-button:hover {
-  background: rgba(255,255,255,0.05);
-}
+    .secondary-button:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px 0;
-  border-top: 1px solid var(--secondary);
-  color: var(--text-muted);
-}
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--secondary);
+      color: var(--text-muted);
+    }
 
-/* MOBILE */
-@media (max-width: 700px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
+    /* MOBILE */
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
 
-  .nav-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
 
-/* MOBILE NAV FIX */
-@media (max-width: 700px) {
+    /* MOBILE NAV FIX */
+    @media (max-width: 700px) {
 
-  .nav-inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
+      .nav-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
 
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
 
-  .nav-links a {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
+      .nav-links a {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
 
-  /* 🔥 Telegram button fix */
-  #nav-wallet {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-    font-size: 1rem;
-    border-radius: 10px;
-  }
+      /* 🔥 Telegram button fix */
+      #nav-wallet {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        font-size: 1rem;
+        border-radius: 10px;
+      }
 
-  /* Make toggle also clean */
-  #lang-toggle {
-    width: 100%;
-    text-align: center;
-  }
-}
+      /* Make toggle also clean */
+      #lang-toggle {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<nav class="navbar">
-  <div class="container nav-inner">
-    <div class="logo">Key<span>Crypto</span> <span style="font-weight:400; font-size:0.9rem; color:#475569;">OTC</span></div>
-    <div class="nav-links">
-      <a href="https://keycrypto.pro/">KeyCrypto</a>
-      <a href="#otc-desk" id="nav-otc">VIP</a>
-      <a href="#contacts" id="nav-contacts">Контакты</a>
-      <a href="https://t.me/KeyCrypto_Bot" id="nav-wallet" target="_blank" class="btn-outline">Криптокошелёк</a>
-      
-    </div>
-    <button id="lang-toggle" class="btn-outline">EN</button>
-  </div>
-</nav>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">Key<span>Crypto</span> <span
+          style="font-weight:400; font-size:0.9rem; color:#475569;">OTC</span></div>
+      <div class="nav-links">
+        <a href="https://keycrypto.pro/">KeyCrypto</a>
+        <a href="#otc-desk" id="nav-otc">VIP</a>
+        <a href="#contacts" id="nav-contacts">Контакты</a>
+        <a href="https://t.me/KeyCrypto_Bot" id="nav-wallet" target="_blank" class="btn-outline">Криптокошелёк</a>
 
-<main>
-  <div class="container">
-    <div class="hero">
-      <div class="badge" id="badge">🔐 Внебиржевые сделки | От 20 000 USD</div>
-      <h1 id="hero-title">Крупные обмены криптовалют <br> Индивидуальный подход </h1>
-      <div class="sub" id="hero-sub">Объединяем банковскую и криптоинфраструктуру в 20+ странах. Работаем с юрлицами, наличными.</div>
-    </div>
-
-    <!-- Краткие преимущества карточками -->
-    <div class="features-grid">
-      <div class="card">
-        <div class="card-icon">🏦</div>
-        <h3 id="card1-title">Юридические лица</h3>
-        <p id="card1-text">Принимаем платежи от компаний в разных юрисдикциях, зачисляем на счета юрлиц. Полное документальное сопровождение.</p>
       </div>
-      <div class="card">
-        <div class="card-icon">💵</div>
-        <h3 id="card2-title">Наличные в любой точке</h3>
-        <p id="card2-text">Выдача и приём наличных через собственную сеть криптообменников в РФ (Москва, города РФ), Европе, Турции, Грузии, ОАЭ и Азии.</p>
+      <button id="lang-toggle" class="btn-outline">EN</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="hero">
+        <div class="badge" id="badge">🔐 Внебиржевые сделки | От 20 000 USD</div>
+        <h1 id="hero-title">Крупные обмены криптовалют <br> Индивидуальный подход </h1>
+        <div class="sub" id="hero-sub">Объединяем банковскую и криптоинфраструктуру в 20+ странах. Работаем с юрлицами,
+          наличными.</div>
       </div>
-      <div class="card">
-        <div class="card-icon">🌍</div>
-        <h3  id="card3-title">Глобальная сеть</h3>
-        <p id="card3-text">Гонконг, Вьетнам, Таиланд, ЮАР, Аргентина, Индия — работаем там, где нужен выход в кэш или корпоративный фиат.</p>
+
+      <!-- Краткие преимущества карточками -->
+      <div class="features-grid">
+        <div class="card">
+          <div class="card-icon">🏦</div>
+          <h3 id="card1-title">Юридические лица</h3>
+          <p id="card1-text">Принимаем платежи от компаний в разных юрисдикциях, зачисляем на счета юрлиц. Полное
+            документальное сопровождение.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💵</div>
+          <h3 id="card2-title">Наличные в любой точке</h3>
+          <p id="card2-text">Выдача и приём наличных через собственную сеть криптообменников в РФ (Москва, города РФ),
+            Европе, Турции, Грузии, ОАЭ и Азии.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h3 id="card3-title">Глобальная сеть</h3>
+          <p id="card3-text">Гонконг, Вьетнам, Таиланд, ЮАР, Аргентина, Индия — работаем там, где нужен выход в кэш или
+            корпоративный фиат.</p>
+        </div>
+      </div>
+
+      <!-- Основной OTC-текст (3 абзаца) -->
+      <div class="otc-description" id="otc-desk">
+        <p id="otc-p1"><strong>Мы объединяем банковскую и криптоинфраструктуру</strong>, чтобы проводить крупные обмены
+          безопасно, конфиденциально и быстро.</p>
+
+        <p id="otc-p2"><strong>Наличные операции доступны через собственную сеть криптообменников</strong> в России
+          (Москва и другие города), а также в Европе, Турции, Грузии, Дубае, Гонконге, Вьетнаме, Таиланде, ЮАР,
+          Аргентине, Индии и других странах. Вы можете внести или получить наличные в удобной локации, а мы
+          сконвертируем средства в криптовалюту (USDT, BTC, ETH) или обратно — по выгодному курсу.</p>
+
+        <p id="otc-p3"><strong>Индивидуальный подход, премиальный уровень сервиса и полное сопровождение сделки от 20
+            000 USD</strong> Просто напишите нам — мы подготовим индивидуальные условия под вашу сделку, обеспечим
+          полную конфиденциальность и высокую скорость расчётов.</p>
+
+        <div class="country-list">
+          <span class="country-tag">🇷🇺 Москва / РФ</span>
+          <span class="country-tag">🇪🇺 Европа</span>
+          <span class="country-tag">🇹🇷 Турция</span>
+          <span class="country-tag">🇬🇪 Грузия</span>
+          <span class="country-tag">🇦🇪 Дубай</span>
+          <span class="country-tag">🇭🇰 Гонконг</span>
+          <span class="country-tag">🇻🇳 Вьетнам</span>
+          <span class="country-tag">🇹🇭 Таиланд</span>
+          <span class="country-tag">🇿🇦 ЮАР</span>
+          <span class="country-tag">🇦🇷 Аргентина</span>
+          <span class="country-tag">🇮🇳 Индия</span>
+          <span class="country-tag">🇸🇬 Сингапур</span>
+        </div>
+      </div>
+
+      <!-- Блок контактов -->
+      <div id="contacts" class="contact-block">
+        <h2 id="contact-title">📲 Начнем OTC-сделку</h2>
+        <p id="contact-sub" style="max-width: 550px; margin: 0 auto 12px;">Просто напишите вашему личному менеджеру в
+          Telegram.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+          <a id="btn-telegram" href="https://t.me/KeyCryptoOTC" target="_blank" class="tg-button">
+            ✈️ Менеджер KeyCryptoOTC
+          </a>
+        </div>
+        <p id="contact-alt" style="margin-top: 28px; font-size: 0.9rem; color:#475569;">
+          или напишите в официальный канал @keycrypto_provodnik
+        </p>
       </div>
     </div>
+  </main>
 
-    <!-- Основной OTC-текст (3 абзаца) -->
-    <div class="otc-description" id="otc-desk">
-      <p id="otc-p1"><strong>Мы объединяем банковскую и криптоинфраструктуру</strong>, чтобы проводить крупные обмены безопасно, конфиденциально и быстро.</p>
-      
-      <p id="otc-p2"><strong>Наличные операции доступны через собственную сеть криптообменников</strong> в России (Москва и другие города), а также в Европе, Турции, Грузии, Дубае, Гонконге, Вьетнаме, Таиланде, ЮАР, Аргентине, Индии и других странах. Вы можете внести или получить наличные в удобной локации, а мы сконвертируем средства в криптовалюту (USDT, BTC, ETH) или обратно — по выгодному курсу.</p>
-      
-      <p id="otc-p3"><strong>Индивидуальный подход, премиальный уровень сервиса и полное сопровождение сделки от 20 000 USD</strong> Просто напишите нам — мы подготовим индивидуальные условия под вашу сделку, обеспечим полную конфиденциальность и высокую скорость расчётов.</p>
+  <p id="footer-text">
+    KeyCrypto OTC — Премиум сопровождение крупных сделок. <br>
+    Не является финансовой консультацией. Условия сделки обсуждаются индивидуально.
+  </p>
 
-      <div class="country-list">
-        <span class="country-tag">🇷🇺 Москва / РФ</span>
-        <span class="country-tag">🇪🇺 Европа</span>
-        <span class="country-tag">🇹🇷 Турция</span>
-        <span class="country-tag">🇬🇪 Грузия</span>
-        <span class="country-tag">🇦🇪 Дубай</span>
-        <span class="country-tag">🇭🇰 Гонконг</span>
-        <span class="country-tag">🇻🇳 Вьетнам</span>
-        <span class="country-tag">🇹🇭 Таиланд</span>
-        <span class="country-tag">🇿🇦 ЮАР</span>
-        <span class="country-tag">🇦🇷 Аргентина</span>
-        <span class="country-tag">🇮🇳 Индия</span>
-        <span class="country-tag">🇸🇬 Сингапур</span>
-      </div>
-    </div>
+  <p id="footer-copy" style="margin-top: 12px;">
+    ©️ 2026 KeyCrypto.pro |
+    <a href="https://t.me/KeyCrypto_Bot" style="color:#2563eb; text-decoration: none;">
+      KeyCrypto Wallet
+    </a>
+  </p>
+  <script>
+    const translations = {
+      en: {
+        navOTC: "OTC Services",
+        navContacts: "Contacts",
+        navWallet: "Telegram Wallet",
 
-    <!-- Блок контактов -->
-    <div id="contacts" class="contact-block">
-      <h2 id="contact-title">📲 Начнем OTC-сделку</h2>
-      <p id="contact-sub" style="max-width: 550px; margin: 0 auto 12px;">Просто напишите вашему личному менеджеру в Telegram.</p>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
-        <a  id="btn-telegram" href="https://t.me/KeyCryptoOTC" target="_blank" class="tg-button">
-          ✈️ Менеджер KeyCryptoOTC
-        </a>
-      </div>
-      <p style="margin-top: 28px; font-size: 0.9rem; color:#475569;">или напишите в официальный канал @keycrypto_provodnik</p>
-    </div>
-  </div>
-</main>
+        badge: "🔐 OTC deals | From 20,000 USD",
+        heroTitle: "Large crypto exchanges <br> without limits or freezes",
+        heroSub: "We combine banking and crypto infrastructure across 20+ countries. Work with crypto, cash and corporate bank accounts.",
 
-<footer>
-  <div class="container">
-    <p>KeyCrypto OTC — Премиум сопровождение крупных сделок. <br> Не является финансовой консультацией. Условия сделки обсуждаются индивидуально.</p>
-    <p style="margin-top: 12px;">©️ 2026 KeyCrypto.pro | <a href="https://t.me/KeyCrypto_Bot" style="color:#2563eb; text-decoration: none;">KeyCrypto Wallet</a></p>
-  </div>
-</footer>
-<script>
-const translations = {
-  en: {
-    navOTC: "OTC Services",
-    navContacts: "Contacts",
-    navWallet: "Telegram Wallet",
+        card1Title: "Legal entities",
+        card1Text: "We accept payments from companies across jurisdictions and settle to corporate accounts with full documentation.",
+        card2Title: "Cash anywhere",
+        card2Text: "Cash-in and cash-out via our own network in Russia, Europe, Turkey, Georgia, UAE, Asia...",
+        card3Title: "Global network",
+        card3Text: "USA, Singapore, Hong Kong, Vietnam, Thailand, South Africa, Argentina, India — access liquidity worldwide.",
 
-    badge: "🔐 OTC deals | From 20,000 USD",
-    heroTitle: "Large crypto exchanges <br> without limits or freezes",
-    heroSub: "We combine banking and crypto infrastructure across 20+ countries. Work with crypto, cash and corporate bank accounts.",
+        otc1: "We combine banking and crypto infrastructure to execute large trades quickly, privately, and without reliance on P2P platforms. We work with both individuals and legal entities — accepting payments from companies across jurisdictions and settling to corporate accounts. No exchange verification risks — we fully manage OTC deals from 20,000 USD.",
+        otc2: "Cash operations are available via our own network in Russia, Europe, Turkey, Georgia, Dubai, Hong Kong, Vietnam, Thailand, South Africa, Argentina, India and more. Deposit or withdraw cash in a convenient location, and we convert it to crypto (USDT, BTC, ETH) or back at competitive market rates.",
+        otc3: "We combine fiat and crypto rails to solve any task: cash-out, corporate funding, or large-volume conversion. Contact us — we’ll structure a deal tailored to your jurisdiction, volume, and needs.",
 
-    card1Title: "Legal entities",
-    card1Text: "We accept payments from companies across jurisdictions and settle to corporate accounts with full documentation.",
-    card2Title: "Cash anywhere",
-    card2Text: "Cash-in and cash-out via our own network in Russia, Europe, Turkey, Georgia, UAE, Asia...",
-    card3Title: "Global network",
-    card3Text: "USA, Singapore, Hong Kong, Vietnam, Thailand, South Africa, Argentina, India — access liquidity worldwide.",
+        contactTitle: "📲 Start your OTC deal",
+        contactSub: "We’ll prepare custom terms, rates, and logistics based on your volume and jurisdiction.",
+        btnTelegram: "✈️ Write in Telegram",
 
-    otc1: "We combine banking and crypto infrastructure to execute large trades quickly, privately, and without reliance on P2P platforms. We work with both individuals and legal entities — accepting payments from companies across jurisdictions and settling to corporate accounts. No exchange verification risks — we fully manage OTC deals from 20,000 USD.",
-    otc2: "Cash operations are available via our own network in Russia, Europe, Turkey, Georgia, Dubai, Hong Kong, Vietnam, Thailand, South Africa, Argentina, India and more. Deposit or withdraw cash in a convenient location, and we convert it to crypto (USDT, BTC, ETH) or back at competitive market rates.",
-    otc3: "We combine fiat and crypto rails to solve any task: cash-out, corporate funding, or large-volume conversion. Contact us — we’ll structure a deal tailored to your jurisdiction, volume, and needs.",
+        contactAlt: "or message the official channel @keycrypto_provodnik",
 
-    contactTitle: "📲 Start your OTC deal",
-    contactSub: "We’ll prepare custom terms, rates, and logistics based on your volume and jurisdiction.",
-    btnTelegram: "✈️ Write in Telegram"
-  },
+        footerText: "KeyCrypto OTC — Premium сопровождение крупных сделок. <br> This is not financial advice. Terms are discussed individually.",
+        footerCopy: "©️ 2026 KeyCrypto.pro |",
+        footerWallet: "KeyCrypto Wallet",
+      },
 
-  ru: {
-    navOTC: "VIP. OTC сделки",
-    navContacts: "Контакты",
-    navWallet: "Криптокошелёк KeyCrypto",
+      ru: {
+        navOTC: "VIP. OTC сделки",
+        navContacts: "Контакты",
+        navWallet: "Криптокошелёк KeyCrypto",
 
-    badge: "🔐 Внебиржевые сделки | От 20 000 USD",
-    heroTitle: "Крупные обмены криптовалюты <br> Индивидуальный подход",
-    heroSub: "Объединяем банковскую и криптоинфраструктуру в 20+ странах.",
+        badge: "🔐 Внебиржевые сделки | От 20 000 USD",
+        heroTitle: "Крупные обмены криптовалюты <br> Индивидуальный подход",
+        heroSub: "Объединяем банковскую и криптоинфраструктуру в 20+ странах.",
 
-    card1Title: "Юридические лица",
-    card1Text: "Принимаем платежи от компаний в разных юрисдикциях, зачисляем на счета юрлиц.",
-    card2Title: "Наличные в любой точке",
-    card2Text: "Выдача и приём наличных через сеть криптообменников.",
-    card3Title: "Глобальная сеть",
-    card3Text: "Работаем по всему миру — Европа, Азия, ЛатАм и др.",
+        card1Title: "Юридические лица",
+        card1Text: "Принимаем платежи от компаний в разных юрисдикциях, зачисляем на счета юрлиц.",
+        card2Title: "Наличные в любой точке",
+        card2Text: "Выдача и приём наличных через сеть криптообменников.",
+        card3Title: "Глобальная сеть",
+        card3Text: "Работаем по всему миру — Европа, Азия, ЛатАм и др.",
 
-    otc1: document.getElementById("otc-p1").innerHTML,
-    otc2: document.getElementById("otc-p2").innerHTML,
-    otc3: document.getElementById("otc-p3").innerHTML,
+        otc1: document.getElementById("otc-p1").innerHTML,
+        otc2: document.getElementById("otc-p2").innerHTML,
+        otc3: document.getElementById("otc-p3").innerHTML,
 
-    contactTitle: "📲 Начнем OTC-сделку",
-    contactSub: "Напишите ваш запрос персональному менеджеру:",
-    btnTelegram: "✈️ Менеджер KeyCryptoOTC"
-  }
-};
+        contactTitle: "📲 Начнем OTC-сделку",
+        contactSub: "Напишите ваш запрос персональному менеджеру:",
+        btnTelegram: "✈️ Менеджер KeyCryptoOTC",
 
-let currentLang = localStorage.getItem("lang") || "ru";
+        contactAlt: "или напишите в официальный канал @keycrypto_provodnik",
 
-function setLanguage(lang) {
-  const t = translations[lang];
+        footerText: "KeyCrypto OTC — Премиум сопровождение крупных сделок. <br> Не является финансовой консультацией. Условия сделки обсуждаются индивидуально.",
+        footerCopy: "©️ 2026 KeyCrypto.pro |",
+        footerWallet: "KeyCrypto Wallet",
+      }
+    };
 
-  document.getElementById("nav-otc").textContent = t.navOTC;
-  document.getElementById("nav-contacts").textContent = t.navContacts;
-  document.getElementById("nav-wallet").textContent = t.navWallet;
+    let currentLang = localStorage.getItem("lang") || "ru";
 
-  document.getElementById("badge").textContent = t.badge;
-  document.getElementById("hero-title").innerHTML = t.heroTitle;
-  document.getElementById("hero-sub").textContent = t.heroSub;
+    function setLanguage(lang) {
+      const t = translations[lang];
 
-  document.getElementById("card1-title").textContent = t.card1Title;
-  document.getElementById("card1-text").textContent = t.card1Text;
-  document.getElementById("card2-title").textContent = t.card2Title;
-  document.getElementById("card2-text").textContent = t.card2Text;
-  document.getElementById("card3-title").textContent = t.card3Title;
-  document.getElementById("card3-text").textContent = t.card3Text;
+      document.getElementById("nav-otc").textContent = t.navOTC;
+      document.getElementById("nav-contacts").textContent = t.navContacts;
+      document.getElementById("nav-wallet").textContent = t.navWallet;
 
-  document.getElementById("otc-p1").innerHTML = t.otc1;
-  document.getElementById("otc-p2").innerHTML = t.otc2;
-  document.getElementById("otc-p3").innerHTML = t.otc3;
+      document.getElementById("badge").textContent = t.badge;
+      document.getElementById("hero-title").innerHTML = t.heroTitle;
+      document.getElementById("hero-sub").textContent = t.heroSub;
 
-  document.getElementById("contact-title").textContent = t.contactTitle;
-  document.getElementById("contact-sub").textContent = t.contactSub;
-  document.getElementById("btn-telegram").textContent = t.btnTelegram;
+      document.getElementById("card1-title").textContent = t.card1Title;
+      document.getElementById("card1-text").textContent = t.card1Text;
+      document.getElementById("card2-title").textContent = t.card2Title;
+      document.getElementById("card2-text").textContent = t.card2Text;
+      document.getElementById("card3-title").textContent = t.card3Title;
+      document.getElementById("card3-text").textContent = t.card3Text;
 
-  document.getElementById("lang-toggle").textContent = lang === "ru" ? "EN" : "RU";
+      document.getElementById("otc-p1").innerHTML = t.otc1;
+      document.getElementById("otc-p2").innerHTML = t.otc2;
+      document.getElementById("otc-p3").innerHTML = t.otc3;
 
-  localStorage.setItem("lang", lang);
-}
+      document.getElementById("contact-title").textContent = t.contactTitle;
+      document.getElementById("contact-sub").textContent = t.contactSub;
+      document.getElementById("btn-telegram").textContent = t.btnTelegram;
 
-document.getElementById("lang-toggle").addEventListener("click", () => {
-  currentLang = currentLang === "ru" ? "en" : "ru";
-  setLanguage(currentLang);
-});
+      document.getElementById("footer-text").innerHTML = t.footerText;
+      document.getElementById("footer-copy").childNodes[0].textContent = t.footerCopy;
+      document.getElementById("footer-wallet").textContent = t.footerWallet;
 
-setLanguage(currentLang);
-</script>
+      document.getElementById("contact-alt").textContent = t.contactAlt;
+
+      document.getElementById("lang-toggle").textContent = lang === "ru" ? "EN" : "RU";
+
+      localStorage.setItem("lang", lang);
+    }
+
+    document.getElementById("lang-toggle").addEventListener("click", () => {
+      currentLang = currentLang === "ru" ? "en" : "ru";
+      setLanguage(currentLang);
+    });
+
+    setLanguage(currentLang);
+  </script>
 
 </body>
+
 </html>

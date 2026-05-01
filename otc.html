@@ -398,18 +398,21 @@
       </div>
     </div>
   </main>
+<footer>
+  <div class="container">
+    <p id="footer-text">
+      KeyCrypto OTC — Премиум сопровождение крупных сделок. <br>
+      Не является финансовой консультацией. Условия сделки обсуждаются индивидуально.
+    </p>
 
-  <p id="footer-text">
-    KeyCrypto OTC — Премиум сопровождение крупных сделок. <br>
-    Не является финансовой консультацией. Условия сделки обсуждаются индивидуально.
-  </p>
-
-  <p id="footer-copy" style="margin-top: 12px;">
-    ©️ 2026 KeyCrypto.pro |
-    <a href="https://t.me/KeyCrypto_Bot" style="color:#2563eb; text-decoration: none;">
-      KeyCrypto Wallet
-    </a>
-  </p>
+    <p id="footer-copy" style="margin-top: 12px;">
+      ©️ 2026 KeyCrypto.pro |
+      <a id="footer-wallet" href="https://t.me/KeyCrypto_Bot" style="color:#2563eb; text-decoration: none;">
+        KeyCrypto Wallet
+      </a>
+    </p>
+  </div>
+</footer>
   <script>
     const translations = {
       en: {
@@ -499,6 +502,9 @@
       document.getElementById("otc-p2").innerHTML = t.otc2;
       document.getElementById("otc-p3").innerHTML = t.otc3;
 
+            document.getElementById("contact-alt").textContent = t.contactAlt;
+
+
       document.getElementById("contact-title").textContent = t.contactTitle;
       document.getElementById("contact-sub").textContent = t.contactSub;
       document.getElementById("btn-telegram").textContent = t.btnTelegram;
@@ -507,7 +513,6 @@
       document.getElementById("footer-copy").childNodes[0].textContent = t.footerCopy;
       document.getElementById("footer-wallet").textContent = t.footerWallet;
 
-      document.getElementById("contact-alt").textContent = t.contactAlt;
 
       document.getElementById("lang-toggle").textContent = lang === "ru" ? "EN" : "RU";
 

@@ -275,9 +275,25 @@
       }
 
       .nav-links {
-        flex-direction: column;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
         width: 100%;
-        gap: 10px;
+        gap: 16px;
+        padding-bottom: 6px;
+      }
+
+      .nav-links a {
+        display: inline-block;
+        flex: 0 0 auto;
+        text-align: center;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      /* Optional: hide scrollbar (clean look) */
+      .nav-links::-webkit-scrollbar {
+        display: none;
       }
 
       .nav-links a {
@@ -314,6 +330,8 @@
         <a href="https://keycrypto.pro/">KeyCrypto</a>
         <a href="#otc-desk" id="nav-otc">VIP</a>
         <a href="#contacts" id="nav-contacts">Контакты</a>
+        <a id="nav-about" href="about.html">About</a>
+        <a id="nav-faq" href="faq.html">FAQ</a>
         <a href="https://t.me/KeyCrypto_Bot" id="nav-wallet" target="_blank" class="btn-outline">Криптокошелёк</a>
 
       </div>
@@ -398,21 +416,21 @@
       </div>
     </div>
   </main>
-<footer>
-  <div class="container">
-    <p id="footer-text">
-      KeyCrypto OTC — Премиум сопровождение крупных сделок. <br>
-      Не является финансовой консультацией. Условия сделки обсуждаются индивидуально.
-    </p>
+  <footer>
+    <div class="container">
+      <p id="footer-text">
+        KeyCrypto OTC — Премиум сопровождение крупных сделок. <br>
+        Не является финансовой консультацией. Условия сделки обсуждаются индивидуально.
+      </p>
 
-<p id="footer-copy" style="margin-top: 12px;">
-  <span id="footer-copy-text">©️ 2026 KeyCrypto.pro |</span>
-  <a id="footer-wallet" href="https://t.me/KeyCrypto_Bot" style="color:#2563eb; text-decoration: none;">
-    KeyCrypto Wallet
-  </a>
-</p>
-  </div>
-</footer>
+      <p id="footer-copy" style="margin-top: 12px;">
+        <span id="footer-copy-text">©️ 2026 KeyCrypto.pro |</span>
+        <a id="footer-wallet" href="https://t.me/KeyCrypto_Bot" style="color:#2563eb; text-decoration: none;">
+          KeyCrypto Wallet
+        </a>
+      </p>
+    </div>
+  </footer>
   <script>
     const translations = {
       en: {
@@ -502,7 +520,7 @@
       document.getElementById("otc-p2").innerHTML = t.otc2;
       document.getElementById("otc-p3").innerHTML = t.otc3;
 
-            document.getElementById("contact-alt").textContent = t.contactAlt;
+      document.getElementById("contact-alt").textContent = t.contactAlt;
 
 
       document.getElementById("contact-title").textContent = t.contactTitle;
@@ -514,7 +532,7 @@
       document.getElementById("footer-wallet").textContent = t.footerWallet;
 
       document.getElementById("footer-copy-text").textContent = t.footerCopy;
-document.getElementById("footer-wallet").textContent = t.footerWallet;
+      document.getElementById("footer-wallet").textContent = t.footerWallet;
 
 
       document.getElementById("lang-toggle").textContent = lang === "ru" ? "EN" : "RU";

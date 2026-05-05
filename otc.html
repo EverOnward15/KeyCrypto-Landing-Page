@@ -305,64 +305,68 @@
 
     @media (max-width: 700px) {
 
-  .nav-inner {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+      .nav-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    color: var(--text-main);
-    font-size: 1.6rem;
-    cursor: pointer;
-  }
+      .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-main);
+        font-size: 1.6rem;
+        cursor: pointer;
+      }
 
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: var(--bg);
-    flex-direction: column;
-    gap: 10px;
-    padding: 16px;
-    display: none;
-    border-top: 1px solid var(--secondary);
-      z-index: 999;
-  }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg);
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px;
+        display: none;
+        border-top: 1px solid var(--secondary);
+        z-index: 999;
+      }
 
-  .nav-links.active {
-    display: flex !important;
-  }
+      .nav-links.active {
+        display: flex !important;
+      }
 
-  .nav-links a {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.03);
-  }
+      .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+      }
 
-  #nav-wallet {
-    background: var(--primary);
-    font-weight: 700;
-  }
+      #nav-wallet {
+        background: var(--primary);
+        font-weight: 700;
+      }
 
-  #lang-toggle {
-    display: none; /* optional: cleaner */
-  }
-}
+      #lang-toggle {
+        display: none;
+        /* optional: cleaner */
+      }
+    }
 
-.menu-toggle {
-  /* display: none; */
-}
+    @media (min-width: 700px) {
 
-.navbar {
-  position: relative;
-}
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    .navbar {
+      position: relative;
+    }
   </style>
 </head>
 
@@ -372,7 +376,7 @@
     <div class="container nav-inner">
       <div class="logo">Key<span>Crypto</span> <span
           style="font-weight:400; font-size:0.9rem; color:#475569;">OTC</span></div>
-          <button id="menu-toggle" class="menu-toggle">☰</button>
+      <button id="menu-toggle" class="menu-toggle">☰</button>
       <div class="nav-links">
         <a href="https://keycrypto.pro/">KeyCrypto</a>
         <a href="#otc-desk" id="nav-otc">VIP</a>
@@ -621,14 +625,14 @@
     setLanguage(currentLang);
 
     const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+    const navLinks = document.querySelector(".nav-links");
 
 
 
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  menuToggle.textContent = navLinks.classList.contains("active") ? "✕" : "☰";
-});
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.textContent = navLinks.classList.contains("active") ? "✕" : "☰";
+    });
   </script>
 
 </body>

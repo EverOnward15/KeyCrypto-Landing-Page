@@ -553,9 +553,8 @@
         </div>
     </header>
 
-
-    <div class="container">
-        <div class="coming-soon">Coming November 2025</div>
+<div class="container">
+        <!-- <div class="coming-soon">Coming November 2025</div> -->
 
         <div class="logo-heading">
             <div class="logo">
@@ -872,8 +871,8 @@
             langToggle.textContent = lang === "en" ? "RU" : "EN";
 
             // Header links
-            document.getElementById("nav-about").textContent = t.menuAbout;
-            document.getElementById("nav-faq").textContent = t.menuFAQ;
+            menuLinks[0].textContent = t.menuAbout;
+            menuLinks[1].textContent = t.menuFAQ;
 
             // Main content
             comingEl.textContent = t.coming;
@@ -932,5 +931,4 @@
 
     </script>
 </body>
-
 </html>

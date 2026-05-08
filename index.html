@@ -553,16 +553,18 @@
         </div>
     </header>
 
-<div class="container">
+    <div class="container">
         <!-- <div class="coming-soon">Coming November 2025</div> -->
 
         <div class="logo-heading">
             <div class="logo">
                 <img src="./logo.webp" alt="KeyCrypto Logo">
             </div>
-            <h1>&nbsp;KeyCrypto Wallet</h1>
+            <h1 id="wallet-title">&nbsp;KeyCrypto Wallet</h1>
         </div>
-        <h2>Telegram-first, instant crypto access, no signup required</h2>
+        <h2 id="wallet-subtitle">
+            Telegram-first, instant crypto access, no signup required
+        </h2>
         <div class="telegram-cta">
             <div>
                 <a href="https://t.me/KeyCrypto_Bot" target="_blank">
@@ -686,10 +688,10 @@
         <a href="mailto:team@keycrypto.pro">team@keycrypto.pro</a> |
         <a href="/aml-ctf.html">AML/CTF Policy</a>
     </footer>
-
     <script>
         // Floating crypto circles
         const cryptoBg = document.getElementById('crypto-bg');
+
         for (let i = 0; i < 25; i++) {
             const div = document.createElement('div');
             div.style.left = Math.random() * 100 + 'vw';
@@ -698,16 +700,15 @@
             cryptoBg.appendChild(div);
         }
 
-        // Handle form submission (front-end validation + honeypot)
+        // Handle form submission
         function handleFormSubmit(e) {
             const email = document.getElementById('email').value.trim();
             const honeypot = document.getElementById('hp_field').value;
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            // If honeypot is filled → it's a bot
             if (honeypot) {
                 console.log('Bot detected — submission ignored.');
-                return false; // block submission
+                return false;
             }
 
             if (!email || !emailRegex.test(email)) {
@@ -715,10 +716,7 @@
                 return false;
             }
 
-            // Optional: show quick feedback
             alert(`Thanks! We'll notify you at ${email} when we launch.`);
-
-            // Allow normal HTML form submission (no JS fetch → avoids CORS)
             return true;
         }
 
@@ -739,115 +737,170 @@
             lightboxImg.src = '';
         }
 
-        // if (localStorage.getItem("lang") === "ru") setLanguage("ru");
+        // TRANSLATIONS
         const translations = {
             en: {
-                coming: "Coming November 2025",
                 walletTitle: "KeyCrypto Wallet",
                 walletSubtitle: "Telegram-first, instant crypto access, no signup required",
+
                 feature1: "Use via Telegram – no signup, no password to remember",
                 feature2: "We auto-generate your wallet/private key <a href='https://web3auth.io/docs/how-web3auth-works'>securely with Web3Auth</a>",
                 feature3: "BTC & ETH supported at launch, TRC-20 tokens & crypto cards coming soon",
                 feature4: "Supports Global payment methods",
                 feature5: "Encrypted key backup option",
+
                 aboutTitle: "About KeyCrypto",
                 aboutText: "KeyCrypto Wallet is built for a new generation of users who want simple, instant, and secure access to digital assets.",
+
                 whatTitle: "What You Can Do",
+
                 roadmapTitle: "Our Roadmap",
+
                 whyTitle: "Why Choose KeyCrypto?",
                 whyText: "We combine cutting-edge technology with regulatory compliance and real-world certifications to deliver a wallet you can trust.",
+
                 submit: "Submit",
                 certTitle: "Our Certifications",
+
                 footer: "© 2025 KeyCrypto. All rights reserved.",
+
                 menuAbout: "About",
                 menuFAQ: "FAQ",
+
                 featureCard1Title: "On-Ramp",
                 featureCard1Text: "Buy crypto directly with your local currency using trusted global payment methods.",
+
                 featureCard2Title: "Off-Ramp",
                 featureCard2Text: "Withdraw your BTC, ETH, or stablecoins to bank accounts or mobile money worldwide.",
+
                 featureCard3Title: "Multi-Asset Support",
                 featureCard3Text: "Bitcoin & Ethereum at launch, TRC-20 tokens and more assets coming soon.",
+
                 featureCard4Title: "Encrypted Backups",
                 featureCard4Text: "Your keys, your control. Backup securely with Web3Auth encryption.",
+
                 featureCard5Title: "Instant Wallet Access",
                 featureCard5Text: "Start using your wallet immediately via Telegram, no signup required.",
+
                 featureCard6Title: "Global Payments",
                 featureCard6Text: "Supports worldwide payment methods so you can buy and sell crypto wherever you are.",
 
-                // Wallet roadmap...
-                roadmapTitle: "Our Roadmap",
-                roadmap1: "2025 Q4: Wallet launch with BTC & ETH, and on-ramp support",
-                roadmap2: "2026 Q1: TRC-20 tokens, extended off-ramp coverage",
-                roadmap3: "2026 Q2: Rechargeable KeyCrypto Cards for global spending",
-                roadmap4: "2026 Q3: Staking & yield opportunities within wallet",
-
-
+                roadmap1: "<strong>2025 Q4:</strong> Wallet launch with BTC & ETH, and on-ramp support",
+                roadmap2: "<strong>2026 Q1:</strong> TRC-20 tokens, extended off-ramp coverage",
+                roadmap3: "<strong>2026 Q2:</strong> Rechargeable KeyCrypto Cards for global spending",
+                roadmap4: "<strong>2026 Q3:</strong> Staking & yield opportunities within wallet",
             },
+
             ru: {
-                coming: "Запуск в ноябре 2025",
                 walletTitle: "Криптокошелёк KeyCrypto",
                 walletSubtitle: "Авторизация через Telegram, просто и безопасно!",
+
                 feature1: "Легально - Покупка и продажа криптовалют с русских банковских карт",
                 feature2: "Быстро - Автоматическое создание кошельков / приватных ключей через <a href='https://web3auth.io/docs/how-web3auth-works'>безопасно с Web3Auth</a>",
                 feature3: "Функционально - Мультивалютность: Bitcoin, USDT, Ethereum...",
-                feature4: "Безопасно - Шифрованное резервное копирование ключей, не нужно хранить сложные Seed фразы",
-                feature5: "Легко - Интуитивно понятный дизайн и навигация. Ничего лишнего",
+                feature4: "Безопасно - Шифрованное резервное копирование ключей",
+                feature5: "Легко - Интуитивно понятный дизайн и навигация",
+
                 aboutTitle: "О KeyCrypto",
                 aboutText: "KeyCrypto Wallet создан для новичков, которые хотят простой и безопасный доступ к криптовалютам",
+
                 whatTitle: "Что вы можете делать",
+
                 roadmapTitle: "Наш план развития",
+
                 whyTitle: "Почему выбирают KeyCrypto",
-                whyText: "Передовые технологии защиты, удобство и простота использования, минимальные комиссии и легальные способы покупки и продажи криптовалюты. KeyCrypto подходит как новичкам, так и профессионалам.",
+                whyText: "Передовые технологии защиты, удобство и простота использования, минимальные комиссии и легальные способы покупки и продажи криптовалюты.",
+
                 submit: "Отправить",
                 certTitle: "Наши Сертификаты",
+
                 footer: "© 2025 KeyCrypto. Все права защищены.",
+
                 menuAbout: "О нас",
-                menuFAQ: "Часто задаваемые вопросы",
+                menuFAQ: "FAQ",
 
                 featureCard1Title: "Покупка",
-                featureCard1Text: "Покупайте криптовалюту легально напрямую с банковских карт или через СБП. Без рискованных Р2Р и прочих серых схем.",
+                featureCard1Text: "Покупайте криптовалюту легально напрямую с банковских карт или через СБП.",
+
                 featureCard2Title: "Продажа",
-                featureCard2Text: "Выводите любую криптовалюту на ваши банковские счета или карты без рисков блокировок.",
+                featureCard2Text: "Выводите криптовалюту на банковские счета или карты.",
+
                 featureCard3Title: "Поддержка мультивалютности",
-                featureCard3Text: "Bitcoin, USDT, Ethereum и другие криптовалюты в одном приложении KeyCrypto.",
+                featureCard3Text: "Bitcoin, USDT, Ethereum и другие криптовалюты.",
+
                 featureCard4Title: "Шифрованное резервное копирование",
-                featureCard4Text: "Ваши ключи — ваш контроль. Безопасное резервное копирование через Web3Auth.",
+                featureCard4Text: "Ваши ключи — ваш контроль.",
+
                 featureCard5Title: "Мгновенный доступ к кошельку",
-                featureCard5Text: "Начните использовать кошелёк сразу через Telegram, без регистрации.",
+                featureCard5Text: "Используйте кошелёк сразу через Telegram.",
+
                 featureCard6Title: "Глобальные платежи",
-                featureCard6Text: "Поддержка платёжных методов по всему миру, чтобы покупать и продавать криптовалюту где угодно.",
+                featureCard6Text: "Поддержка платёжных методов по всему миру.",
 
-                roadmapTitle: "Наш план развития",
-                roadmap1: "Q4 2025: Запуск реферальной программы, добавление мультивалютности криптокошелька шлюзы.",
-                roadmap2: "Q1 2026: Расширение географии поддерживаемых регионов и валют, запуск онлайн курса по криптовалютам.",
-                roadmap3: "Q2 2026: Выпуск собственных банковских крипокарт KeyCrypto для оплаты по всему миру, расширенные фиатные шлюзы.",
-                roadmap4: "Mid 2026: Стейкинг (депозиты) и доходность для криптовалютные вклады активов, инвестирование, аналитика и инструменты портфеля.",
-
-
+                roadmap1: "<strong>Q4 2025:</strong> Запуск реферальной программы и мультивалютности.",
+                roadmap2: "<strong>Q1 2026:</strong> Расширение географии и валют.",
+                roadmap3: "<strong>Q2 2026:</strong> Выпуск криптокарт KeyCrypto.",
+                roadmap4: "<strong>Mid 2026:</strong> Стейкинг и инвестиционные инструменты.",
             }
         };
 
-        // Get saved language from localStorage or default to English
+        // LANGUAGE
         let currentLang = localStorage.getItem("lang") || "en";
 
-        // DOM references
+        // ELEMENT REFERENCES
         const langToggle = document.getElementById("lang-toggle");
-        const menuLinks = document.querySelectorAll(".header-nav a");
-        const footer = document.querySelector(".footer");
-        const comingEl = document.querySelector(".coming-soon");
-        const h1El = document.querySelector("h1");
-        const h2El = document.querySelector("h2");
+
+        const walletTitle = document.getElementById("wallet-title");
+        const walletSubtitle = document.getElementById("wallet-subtitle");
+
         const featureItems = document.querySelectorAll(".features li");
+
         const aboutSection = document.querySelector('.section:nth-of-type(1)');
         const featuresSectionTitle = document.querySelector('.features-section h2');
         const roadmapTitle = document.querySelector('.roadmap h2');
         const whySection = document.querySelector('.why-us');
+
         const certTitle = document.querySelector('.certifications h3');
         const signupButton = document.querySelector('.signup button');
 
-        // Function to set language
+        const footer = document.querySelector(".footer");
+
         function setLanguage(lang) {
+
             const t = translations[lang];
+
+            // Toggle button
+            langToggle.textContent = lang === "en" ? "RU" : "EN";
+
+            // Header nav
+            document.getElementById("nav-about").textContent = t.menuAbout;
+            document.getElementById("nav-faq").textContent = t.menuFAQ;
+
+            // Hero
+            walletTitle.innerHTML = "&nbsp;" + t.walletTitle;
+            walletSubtitle.textContent = t.walletSubtitle;
+
+            // Features list
+            featureItems[0].innerHTML = t.feature1;
+            featureItems[1].innerHTML = t.feature2;
+            featureItems[2].innerHTML = t.feature3;
+            featureItems[3].innerHTML = t.feature4;
+            featureItems[4].innerHTML = t.feature5;
+
+            // About
+            aboutSection.querySelector('h2').textContent = t.aboutTitle;
+            aboutSection.querySelector('p').textContent = t.aboutText;
+
+            // Section titles
+            featuresSectionTitle.textContent = t.whatTitle;
+            roadmapTitle.textContent = t.roadmapTitle;
+
+            whySection.querySelector('h2').textContent = t.whyTitle;
+            whySection.querySelector('p').textContent = t.whyText;
+
+            certTitle.textContent = t.certTitle;
+
+            // Feature cards
             const featureCards = document.querySelectorAll('.feature-card');
 
             featureCards[0].querySelector('h3').textContent = t.featureCard1Title;
@@ -867,44 +920,19 @@
 
             featureCards[5].querySelector('h3').textContent = t.featureCard6Title;
             featureCards[5].querySelector('p').textContent = t.featureCard6Text;
-            // Update toggle button
-            langToggle.textContent = lang === "en" ? "RU" : "EN";
 
-            // Header links
-            menuLinks[0].textContent = t.menuAbout;
-            menuLinks[1].textContent = t.menuFAQ;
-
-            // Main content
-            comingEl.textContent = t.coming;
-            h1El.textContent = t.walletTitle;
-            h2El.textContent = t.walletSubtitle;
-
-            featureItems[0].innerHTML = t.feature1;
-            featureItems[1].innerHTML = t.feature2;
-            featureItems[2].innerHTML = t.feature3;
-            featureItems[3].innerHTML = t.feature4;
-            featureItems[4].innerHTML = t.feature5;
-
-            aboutSection.querySelector('h2').textContent = t.aboutTitle;
-            aboutSection.querySelector('p').textContent = t.aboutText;
-
-            featuresSectionTitle.textContent = t.whatTitle;
-            roadmapTitle.textContent = t.roadmapTitle;
-            whySection.querySelector('h2').textContent = t.whyTitle;
-            whySection.querySelector('p').textContent = t.whyText;
-            certTitle.textContent = t.certTitle;
-
-
+            // Roadmap
             const roadmapItems = document.querySelectorAll(".roadmap li");
-            roadmapItems[0].innerHTML = `<strong>${t.roadmap1}</strong>`;
-            roadmapItems[1].innerHTML = `<strong>${t.roadmap2}</strong>`;
-            roadmapItems[2].innerHTML = `<strong>${t.roadmap3}</strong>`;
-            roadmapItems[3].innerHTML = `<strong>${t.roadmap4}</strong>`;
 
+            roadmapItems[0].innerHTML = t.roadmap1;
+            roadmapItems[1].innerHTML = t.roadmap2;
+            roadmapItems[2].innerHTML = t.roadmap3;
+            roadmapItems[3].innerHTML = t.roadmap4;
 
+            // Signup button
             signupButton.textContent = t.submit;
 
-            // Footer (keep links)
+            // Footer
             footer.innerHTML =
                 t.footer +
                 " | <a href='terms-of-service.html'>" +
@@ -915,20 +943,19 @@
                 (lang === "en" ? "AML / CTF Policy" : "Политика AML / CTF") +
                 "</a> | <a href='mailto:team@keycrypto.pro'>team@keycrypto.pro</a>";
 
-            // Save language
             localStorage.setItem("lang", lang);
         }
 
-
-        // Toggle language on button click
+        // Toggle click
         langToggle.addEventListener("click", () => {
             currentLang = currentLang === "en" ? "ru" : "en";
             setLanguage(currentLang);
         });
 
-        // Initialize page language on load
+        // Init
         setLanguage(currentLang);
 
     </script>
 </body>
+
 </html>

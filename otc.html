@@ -318,6 +318,7 @@
         color: var(--text-main);
         font-size: 1.6rem;
         cursor: pointer;
+        order: 2;
       }
 
       .nav-links {
@@ -352,8 +353,9 @@
       }
 
       #lang-toggle {
-        display: none;
+        /* display: none; */
         /* optional: cleaner */
+        margin-right: auto;
       }
     }
 
@@ -367,14 +369,29 @@
     .navbar {
       position: relative;
     }
+
+      .logo a {
+        
+        text-decoration: none !important;
+      }
+
+      .logo a:focus {
+        outline: none;
+        text-decoration: none;
+      }
+
+      .logo a:-webkit-any-link {
+        color: inherit;
+      }
   </style>
+
 </head>
 
 <body>
 
   <nav class="navbar">
     <div class="container nav-inner">
-      <div class="logo">Key<span>Crypto</span> <span
+      <div class="logo"><a href="https://keycrypto.pro/">Key<span>Crypto</a></span> <span
           style="font-weight:400; font-size:0.9rem; color:#475569;">OTC</span></div>
       <button id="menu-toggle" class="menu-toggle">☰</button>
       <div class="nav-links">
